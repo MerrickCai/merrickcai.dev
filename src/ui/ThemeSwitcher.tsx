@@ -14,17 +14,17 @@ export default function ThemeSwitcher() {
   const [theme, setTheme] = useState<Theme>("system");
   const [hasMounted, setHasMounted] = useState(false);
 
-  const removeTheme = () => {
-    setTheme("system");
-    localStorage.removeItem("theme");
-    themeScript();
-  };
-
   const themeScript = () => {
     const storedTheme = localStorage.getItem("theme");
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     const isDark = storedTheme === "dark" || (storedTheme === null && prefersDark);
     document.documentElement.classList.toggle("dark", isDark);
+  };
+
+  const removeTheme = () => {
+    setTheme("system");
+    localStorage.removeItem("theme");
+    themeScript();
   };
 
   function applyTheme(theme: Theme) {
