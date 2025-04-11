@@ -21,7 +21,9 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased overflow-x-hidden`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased overflow-x-hidden`}
+      >
         {/*  */}
 
         {/* Inline script to apply the .dark class before paint to prevent FOUC */}
