@@ -8,9 +8,7 @@ const commonTitleClassName = "text-3xl font-semibold text-gray-900 dark:text-gra
 export default async function Home() {
   return (
     <div className="flex flex-col h-auto w-full flex-grow items-center justify-center px-4 py-4 bg-gradient-to-b from-gray-100 via-gray-200 to-gray-300 dark:from-gray-900 dark:via-gray-800 dark:to-gray-700">
-      <h1 className="text-5xl font-extrabold text-gray-800 dark:text-gray-100 mb-8 text-center">
-        Welcome to My Blog
-      </h1>
+      <h1 className="text-5xl font-extrabold text-gray-800 dark:text-gray-100 mb-8 text-center">Welcome to My Blog</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl">
         {/* section: About Me */}
         <section className={commonSessionClassName}>
@@ -29,6 +27,38 @@ export default async function Home() {
             {`I enjoy working on a variety of projects, from web development to open-source
             contributions. Check out my latest projects and see what I'm currently working on.`}
           </p>
+          <Link href="/projects" className="text-blue-500 dark:text-blue-400 hover:underline mt-4 block">
+            View All Projects →
+          </Link>
+        </section>
+
+        {/* section: Featured Project - NexusHeart */}
+        <section className={commonSessionClassName}>
+          <h2 className={commonTitleClassName}>Featured Project</h2>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-2">NexusHeart 💕</h3>
+          <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
+            {`A cross-cultural dating platform connecting Chinese and American singles. I developed 
+            the frontend using Next.js 15 with TypeScript, Tailwind CSS, and Supabase integration.`}
+          </p>
+          <div className="flex flex-wrap gap-2 mb-3">
+            <span className="px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded">
+              Next.js 15
+            </span>
+            <span className="px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded">
+              TypeScript
+            </span>
+            <span className="px-2 py-1 text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded">
+              Tailwind CSS
+            </span>
+          </div>
+          <Link
+            href="https://nexusheart.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 dark:text-blue-400 hover:underline"
+          >
+            Visit NexusHeart →
+          </Link>
         </section>
 
         {/* section: Contact */}

@@ -1,9 +1,10 @@
-import { HomeIcon, InformationCircleIcon, EnvelopeIcon } from "@heroicons/react/24/solid";
+import { HomeIcon, InformationCircleIcon, EnvelopeIcon, CodeBracketIcon } from "@heroicons/react/24/solid";
 
 export const navIcons = new Map([
   ["HomeIcon", HomeIcon],
   ["InformationCircleIcon", InformationCircleIcon],
   ["EnvelopeIcon", EnvelopeIcon],
+  ["CodeBracketIcon", CodeBracketIcon],
 ]);
 
 export const navLinks = [
@@ -16,6 +17,11 @@ export const navLinks = [
     href: "/about",
     label: "About",
     icon: "InformationCircleIcon",
+  },
+  {
+    href: "/projects",
+    label: "Projects",
+    icon: "CodeBracketIcon",
   },
   {
     href: "/contact",
