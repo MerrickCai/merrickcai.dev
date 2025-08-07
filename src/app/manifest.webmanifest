@@ -1,0 +1,20 @@
+{
+  "name": "Merrick's Portfolio",
+  "short_name": "MerrickCai.dev",
+  "description": "Personal portfolio and blog of Merrick Cai - Full Stack Developer specializing in modern web technologies",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait",
+  "scope": "/",
+  "lang": "en",
+  "categories": ["personal", "portfolio", "developer", "technology"],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "2048x2048",
+      "type": "image/png"
+    }
+  ]
+}
