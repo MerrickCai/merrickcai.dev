@@ -10,7 +10,7 @@ import {
   SparklesIcon,
 } from "@heroicons/react/24/outline";
 
-export default async function Home() {
+export default function Home() {
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-950 dark:to-indigo-950">
       {/* Hero Section */}

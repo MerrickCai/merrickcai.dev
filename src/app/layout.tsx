@@ -21,20 +21,15 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased overflow-x-hidden`}
-      >
-        {/*  */}
-
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased overflow-x-hidden`}>
         {/* Inline script to apply the .dark class before paint to prevent FOUC */}
         <ThemeScript />
 
         {/* Header, Main, and Footer */}
-        <div className="flex flex-col min-h-screen w-full bg-white dark:bg-black">
+        <div className="flex min-h-screen flex-col bg-white dark:bg-gray-900">
           <Header />
-          <main className="w-full flex-grow flex flex-col justify-center items-center overflow-hidden h-auto">
-            {children}
-          </main>
+          {/* Main content with padding-top to account for fixed header */}
+          <main className="flex-grow pt-16">{children}</main>
           <Footer />
         </div>
 
