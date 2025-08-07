@@ -1,18 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
-const commonClassNames =
-  "cursor-pointer w-7 h-8 md:w-9 md:h-9 text-center text-sm transition-colors rounded";
-const activeClassNames = "bg-gray-900 text-white dark:bg-white dark:text-black";
-const notActiveClassNames =
-  "bg-white text-gray-800 dark:bg-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700";
+import { SunIcon, MoonIcon, ComputerDesktopIcon } from "@heroicons/react/24/outline";
 
 type Theme = "light" | "dark" | "system";
 
 export default function ThemeSwitcher() {
   const [theme, setTheme] = useState<Theme>("system");
-  const [hasMounted, setHasMounted] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   const themeScript = () => {
     const storedTheme = localStorage.getItem("theme");
@@ -34,46 +29,37 @@ export default function ThemeSwitcher() {
   }
 
   useEffect(() => {
+    setMounted(true);
     const storedTheme = (localStorage.getItem("theme") as Theme) || "system";
-    setHasMounted(true);
     setTheme(storedTheme);
   }, []);
 
-  if (!hasMounted)
-    return <div className="w-21 md:w-27 h-8 md:h-9 rounded border border-transparent"></div>;
+  const themes = [
+    { key: "light", icon: SunIcon, label: "Light" },
+    { key: "dark", icon: MoonIcon, label: "Dark" },
+    { key: "system", icon: ComputerDesktopIcon, label: "System" },
+  ] as const;
 
   return (
-    <div
-      className={`animate-fadeIn w-21 md:w-27 h-8 md:h-9 flex flex-row rounded overflow-hidden border border-gray-300 dark:border-gray-600`}
-    >
-      <button
-        onClick={() => {
-          applyTheme("light");
-        }}
-        className={`${commonClassNames} ${
-          theme === "light" ? activeClassNames : notActiveClassNames
-        } `}
-      >
-        🌞
-      </button>
-      <button
-        onClick={() => {
-          applyTheme("dark");
-        }}
-        className={`${commonClassNames} ${
-          theme === "dark" ? activeClassNames : notActiveClassNames
-        } `}
-      >
-        🌙
-      </button>
-      <button
-        onClick={removeTheme}
-        className={`${commonClassNames} ${
-          theme === "system" ? activeClassNames : notActiveClassNames
-        } `}
-      >
-        🖥️
-      </button>
+    <div className="flex rounded-xl bg-gray-100 dark:bg-gray-800 p-1">
+      {themes.map(({ key, icon: Icon, label }) => (
+        <button
+          key={key}
+          onClick={() => (key === "system" ? removeTheme() : applyTheme(key))}
+          className={`cursor-pointer group relative flex items-center justify-center rounded-lg px-3 py-2 text-xs font-medium transition-all duration-200 hover:scale-105 ${
+            mounted && theme === key
+              ? "bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm"
+              : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
+          }`}
+          aria-label={`Switch to ${label} theme`}
+        >
+          {mounted && theme === key && (
+            <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500/10 to-indigo-500/10"></div>
+          )}
+          <Icon className="relative z-10 h-4 w-4" />
+          <span className="relative z-10 ml-1 hidden sm:inline">{label}</span>
+        </button>
+      ))}
     </div>
   );
 }
