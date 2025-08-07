@@ -1,5 +1,7 @@
 import Link from "next/link";
 import RevealOnScroll from "@/components/layout/RevealOnScroll";
+import TypewriterText from "@/components/ui/TypewriterText";
+import FloatingParticles from "@/components/ui/FloatingParticles";
 
 import {
   ArrowRightIcon,
@@ -14,7 +16,10 @@ import {
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-950 dark:to-indigo-950">
+    <div className="relative min-h-screen w-full bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-950 dark:to-indigo-950">
+      {/* Floating Particles Background */}
+      <FloatingParticles count={30} />
+
       {/* Hero Section */}
       <section className="relative px-4 pt-20 pb-16 sm:px-6 lg:px-8">
         <RevealOnScroll>
@@ -29,9 +34,25 @@ export default function Home() {
                 Merrick Cai
               </h1>
 
+              {/* Typewriter Effect */}
+              <div className="mb-6">
+                <TypewriterText
+                  texts={[
+                    "Front-end Engineer",
+                    "React Developer",
+                    "Full-stack Developer",
+                    "Problem Solver",
+                    "Next.js Expert",
+                  ]}
+                  className="flex h-7 items-center justify-center text-2xl font-semibold text-blue-600 dark:text-blue-400"
+                  speed={120}
+                  pause={2500}
+                />
+              </div>
+
               <p className="mx-auto mb-8 max-w-2xl text-xl leading-8 text-gray-600 dark:text-gray-300">
-                Front-end engineer crafting exceptional digital experiences with React, Next.js, and modern web
-                technologies. Building the future, one component at a time.
+                Crafting exceptional digital experiences with React, Next.js, and modern web technologies. Building the
+                future, one component at a time.
               </p>
 
               <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
@@ -62,7 +83,7 @@ export default function Home() {
       </section>
 
       {/* Features Grid */}
-      <section className="px-4 py-16 sm:px-6 lg:px-8">
+      <section className="relative px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <RevealOnScroll delay={0.2}>
             <div className="mb-16 text-center">
@@ -235,7 +256,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="px-4 py-16 sm:px-6 lg:px-8">
+      <section className="relative px-4 py-16 sm:px-6 lg:px-8">
         <RevealOnScroll>
           <div className="mx-auto max-w-4xl text-center">
             <div className="rounded-3xl bg-gradient-to-r from-blue-600 to-indigo-600 p-12 shadow-2xl">
