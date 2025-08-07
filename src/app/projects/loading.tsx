@@ -4,8 +4,8 @@ export default function ProjectsLoading() {
       {/* Hero Section Skeleton */}
       <section className="relative px-4 pt-20 pb-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 mx-auto h-8 w-40 animate-pulse rounded-full bg-gray-200 dark:bg-gray-700"></div>
-          <div className="mb-6 mx-auto h-16 w-72 animate-pulse rounded-2xl bg-gray-200 dark:bg-gray-700"></div>
+          <div className="mx-auto mb-6 h-8 w-40 animate-pulse rounded-full bg-gray-200 dark:bg-gray-700"></div>
+          <div className="mx-auto mb-6 h-16 w-72 animate-pulse rounded-2xl bg-gray-200 dark:bg-gray-700"></div>
           <div className="mx-auto h-6 w-[500px] animate-pulse rounded bg-gray-200 dark:bg-gray-700"></div>
         </div>
       </section>
@@ -16,7 +16,7 @@ export default function ProjectsLoading() {
           <div className="grid gap-8 lg:grid-cols-2">
             {/* Project Card Skeletons */}
             {[...Array(2)].map((_, i) => (
-              <div key={i} className="h-[700px] animate-pulse rounded-3xl bg-white/80 dark:bg-gray-800/80 p-8">
+              <div key={i} className="h-[700px] animate-pulse rounded-3xl bg-white/80 p-8 dark:bg-gray-800/80">
                 <div className="space-y-6">
                   {/* Header */}
                   <div className="flex items-center space-x-4">
@@ -63,7 +63,7 @@ export default function ProjectsLoading() {
 
           {/* Coming Soon Section Skeleton */}
           <div className="mt-12">
-            <div className="h-80 animate-pulse rounded-3xl bg-white/80 dark:bg-gray-800/80 p-8">
+            <div className="h-80 animate-pulse rounded-3xl bg-white/80 p-8 dark:bg-gray-800/80">
               <div className="space-y-6 text-center">
                 <div className="mx-auto h-16 w-16 animate-pulse rounded-2xl bg-gray-200 dark:bg-gray-600"></div>
                 <div className="mx-auto h-8 w-64 animate-pulse rounded bg-gray-200 dark:bg-gray-600"></div>

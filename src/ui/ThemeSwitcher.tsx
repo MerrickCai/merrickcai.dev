@@ -41,15 +41,15 @@ export default function ThemeSwitcher() {
   ] as const;
 
   return (
-    <div className="flex rounded-xl bg-gray-100 dark:bg-gray-800 p-1">
+    <div className="flex rounded-xl bg-gray-100 p-1 dark:bg-gray-800">
       {themes.map(({ key, icon: Icon, label }) => (
         <button
           key={key}
           onClick={() => (key === "system" ? removeTheme() : applyTheme(key))}
-          className={`cursor-pointer group relative flex items-center justify-center rounded-lg px-3 py-2 text-xs font-medium transition-all duration-200 hover:scale-105 ${
+          className={`group relative flex cursor-pointer items-center justify-center rounded-lg px-3 py-2 text-xs font-medium transition-all duration-200 hover:scale-105 ${
             mounted && theme === key
-              ? "bg-white dark:bg-gray-700 text-blue-600 dark:text-blue-400 shadow-sm"
-              : "text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200"
+              ? "bg-white text-blue-600 shadow-sm dark:bg-gray-700 dark:text-blue-400"
+              : "text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-200"
           }`}
           aria-label={`Switch to ${label} theme`}
         >

@@ -4,8 +4,8 @@ export default function ContactLoading() {
       {/* Hero Section Skeleton */}
       <section className="relative px-4 pt-20 pb-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 mx-auto h-8 w-32 animate-pulse rounded-full bg-gray-200 dark:bg-gray-700"></div>
-          <div className="mb-6 mx-auto h-16 w-80 animate-pulse rounded-2xl bg-gray-200 dark:bg-gray-700"></div>
+          <div className="mx-auto mb-6 h-8 w-32 animate-pulse rounded-full bg-gray-200 dark:bg-gray-700"></div>
+          <div className="mx-auto mb-6 h-16 w-80 animate-pulse rounded-2xl bg-gray-200 dark:bg-gray-700"></div>
           <div className="mx-auto h-6 w-96 animate-pulse rounded bg-gray-200 dark:bg-gray-700"></div>
         </div>
       </section>
@@ -15,13 +15,13 @@ export default function ContactLoading() {
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-8 lg:grid-cols-2">
             {/* Contact Info Skeleton */}
-            <div className="h-[500px] animate-pulse rounded-3xl bg-white/80 dark:bg-gray-800/80 p-8">
+            <div className="h-[500px] animate-pulse rounded-3xl bg-white/80 p-8 dark:bg-gray-800/80">
               <div className="space-y-6">
                 <div className="h-8 w-1/3 animate-pulse rounded bg-gray-200 dark:bg-gray-600"></div>
                 {[...Array(4)].map((_, i) => (
                   <div key={i} className="flex items-center space-x-4">
                     <div className="h-12 w-12 animate-pulse rounded-xl bg-gray-200 dark:bg-gray-600"></div>
-                    <div className="space-y-2 flex-1">
+                    <div className="flex-1 space-y-2">
                       <div className="h-4 w-1/4 animate-pulse rounded bg-gray-200 dark:bg-gray-600"></div>
                       <div className="h-5 w-3/4 animate-pulse rounded bg-gray-200 dark:bg-gray-600"></div>
                     </div>
@@ -31,7 +31,7 @@ export default function ContactLoading() {
             </div>
 
             {/* Professional Links Skeleton */}
-            <div className="h-[500px] animate-pulse rounded-3xl bg-white/80 dark:bg-gray-800/80 p-8">
+            <div className="h-[500px] animate-pulse rounded-3xl bg-white/80 p-8 dark:bg-gray-800/80">
               <div className="space-y-6">
                 <div className="h-8 w-1/2 animate-pulse rounded bg-gray-200 dark:bg-gray-600"></div>
                 {[...Array(2)].map((_, i) => (

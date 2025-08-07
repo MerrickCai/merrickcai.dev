@@ -10,16 +10,16 @@ import {
 
 export default function Contact() {
   return (
-    <div className="w-full min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-950 dark:to-indigo-950">
+    <div className="min-h-screen w-full bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-950 dark:to-indigo-950">
       {/* Hero Section */}
       <section className="relative px-4 pt-20 pb-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 inline-flex items-center rounded-full bg-blue-100 dark:bg-blue-900/30 px-4 py-2 text-sm font-medium text-blue-800 dark:text-blue-200">
+          <div className="mb-6 inline-flex items-center rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-800 dark:bg-blue-900/30 dark:text-blue-200">
             <SparklesIcon className="mr-2 h-4 w-4" />
             {`Let's connect`}
           </div>
 
-          <h1 className="mb-6 bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 dark:from-white dark:via-blue-100 dark:to-indigo-100 bg-clip-text text-5xl font-bold tracking-tight text-transparent sm:text-6xl">
+          <h1 className="mb-6 bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 bg-clip-text text-5xl font-bold tracking-tight text-transparent sm:text-6xl dark:from-white dark:via-blue-100 dark:to-indigo-100">
             Contact Me
           </h1>
 
@@ -29,7 +29,7 @@ export default function Contact() {
         </div>
 
         {/* Floating Elements */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20">
           <div className="h-96 w-96 rounded-full bg-gradient-to-r from-blue-400 to-indigo-400 blur-3xl"></div>
         </div>
       </section>
@@ -39,7 +39,7 @@ export default function Contact() {
         <div className="mx-auto max-w-6xl">
           <div className="grid gap-8 lg:grid-cols-2">
             {/* Contact Information */}
-            <div className="group relative overflow-hidden rounded-3xl bg-white/80 dark:bg-gray-800/80 p-8 shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl">
+            <div className="group relative overflow-hidden rounded-3xl bg-white/80 p-8 shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl dark:bg-gray-800/80">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 opacity-0 transition-opacity group-hover:opacity-100"></div>
               <div className="relative">
                 <h2 className="mb-8 text-2xl font-bold text-gray-900 dark:text-white">Get In Touch</h2>
@@ -47,42 +47,42 @@ export default function Contact() {
                 <div className="space-y-6">
                   <Link
                     href="mailto:merrickcai.dev@gmail.com"
-                    className="group/item flex items-center rounded-2xl bg-gray-50 dark:bg-gray-700/50 p-6 transition-all duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:scale-[1.02] hover:shadow-md cursor-pointer"
+                    className="group/item flex cursor-pointer items-center rounded-2xl bg-gray-50 p-6 transition-all duration-300 hover:scale-[1.02] hover:bg-blue-50 hover:shadow-md dark:bg-gray-700/50 dark:hover:bg-blue-900/20"
                   >
-                    <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover/item:bg-blue-500 group-hover/item:text-white transition-all duration-300 group-hover/item:scale-110 group-hover/item:rotate-3">
+                    <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 text-blue-600 transition-all duration-300 group-hover/item:scale-110 group-hover/item:rotate-3 group-hover/item:bg-blue-500 group-hover/item:text-white dark:bg-blue-900/30 dark:text-blue-400">
                       <EnvelopeIcon className="h-6 w-6" />
                     </div>
                     <div className="flex-1">
                       <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Email</p>
-                      <p className="text-lg font-semibold text-gray-900 dark:text-white group-hover/item:text-blue-600 dark:group-hover/item:text-blue-400 transition-colors duration-300">
+                      <p className="text-lg font-semibold text-gray-900 transition-colors duration-300 group-hover/item:text-blue-600 dark:text-white dark:group-hover/item:text-blue-400">
                         merrickcai.dev@gmail.com
                       </p>
                     </div>
-                    <div className="opacity-0 group-hover/item:opacity-100 transition-all duration-300 group-hover/item:translate-x-1">
+                    <div className="opacity-0 transition-all duration-300 group-hover/item:translate-x-1 group-hover/item:opacity-100">
                       <ArrowTopRightOnSquareIcon className="h-5 w-5 text-blue-500" />
                     </div>
                   </Link>
 
                   <Link
                     href="tel:+12533499378"
-                    className="group/item flex items-center rounded-2xl bg-gray-50 dark:bg-gray-700/50 p-6 transition-all duration-300 hover:bg-green-50 dark:hover:bg-green-900/20 hover:scale-[1.02] hover:shadow-md cursor-pointer"
+                    className="group/item flex cursor-pointer items-center rounded-2xl bg-gray-50 p-6 transition-all duration-300 hover:scale-[1.02] hover:bg-green-50 hover:shadow-md dark:bg-gray-700/50 dark:hover:bg-green-900/20"
                   >
-                    <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 group-hover/item:bg-green-500 group-hover/item:text-white transition-all duration-300 group-hover/item:scale-110 group-hover/item:rotate-3">
+                    <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 text-green-600 transition-all duration-300 group-hover/item:scale-110 group-hover/item:rotate-3 group-hover/item:bg-green-500 group-hover/item:text-white dark:bg-green-900/30 dark:text-green-400">
                       <PhoneIcon className="h-6 w-6" />
                     </div>
                     <div className="flex-1">
                       <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Phone</p>
-                      <p className="text-lg font-semibold text-gray-900 dark:text-white group-hover/item:text-green-600 dark:group-hover/item:text-green-400 transition-colors duration-300">
+                      <p className="text-lg font-semibold text-gray-900 transition-colors duration-300 group-hover/item:text-green-600 dark:text-white dark:group-hover/item:text-green-400">
                         (253) 349-9378
                       </p>
                     </div>
-                    <div className="opacity-0 group-hover/item:opacity-100 transition-all duration-300 group-hover/item:translate-x-1">
+                    <div className="opacity-0 transition-all duration-300 group-hover/item:translate-x-1 group-hover/item:opacity-100">
                       <ArrowTopRightOnSquareIcon className="h-5 w-5 text-green-500" />
                     </div>
                   </Link>
 
-                  <div className="group/item flex items-center rounded-2xl bg-gray-50 dark:bg-gray-700/50 p-6 transition-all hover:bg-purple-50 dark:hover:bg-purple-900/20">
-                    <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-xl bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 group-hover/item:bg-purple-500 group-hover/item:text-white transition-all">
+                  <div className="group/item flex items-center rounded-2xl bg-gray-50 p-6 transition-all hover:bg-purple-50 dark:bg-gray-700/50 dark:hover:bg-purple-900/20">
+                    <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-xl bg-purple-100 text-purple-600 transition-all group-hover/item:bg-purple-500 group-hover/item:text-white dark:bg-purple-900/30 dark:text-purple-400">
                       <MapPinIcon className="h-6 w-6" />
                     </div>
                     <div>
@@ -93,8 +93,8 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="group/item flex items-center rounded-2xl bg-gray-50 dark:bg-gray-700/50 p-6 transition-all hover:bg-orange-50 dark:hover:bg-orange-900/20">
-                    <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400 group-hover/item:bg-orange-500 group-hover/item:text-white transition-all">
+                  <div className="group/item flex items-center rounded-2xl bg-gray-50 p-6 transition-all hover:bg-orange-50 dark:bg-gray-700/50 dark:hover:bg-orange-900/20">
+                    <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-xl bg-orange-100 text-orange-600 transition-all group-hover/item:bg-orange-500 group-hover/item:text-white dark:bg-orange-900/30 dark:text-orange-400">
                       <LanguageIcon className="h-6 w-6" />
                     </div>
                     <div>
@@ -107,7 +107,7 @@ export default function Contact() {
             </div>
 
             {/* Professional Links */}
-            <div className="group relative overflow-hidden rounded-3xl bg-white/80 dark:bg-gray-800/80 p-8 shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl">
+            <div className="group relative overflow-hidden rounded-3xl bg-white/80 p-8 shadow-xl backdrop-blur-sm transition-all duration-300 hover:shadow-2xl dark:bg-gray-800/80">
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 opacity-0 transition-opacity group-hover:opacity-100"></div>
               <div className="relative">
                 <h2 className="mb-8 text-2xl font-bold text-gray-900 dark:text-white">Professional Links</h2>
@@ -117,7 +117,7 @@ export default function Contact() {
                     href="https://github.com/merrickcai"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group/link flex items-center rounded-2xl border-2 border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700/50 p-6 transition-all hover:border-gray-400 hover:bg-white dark:hover:bg-gray-600 hover:shadow-lg hover:scale-[1.02]"
+                    className="group/link flex items-center rounded-2xl border-2 border-gray-200 bg-gray-50 p-6 transition-all hover:scale-[1.02] hover:border-gray-400 hover:bg-white hover:shadow-lg dark:border-gray-600 dark:bg-gray-700/50 dark:hover:bg-gray-600"
                   >
                     <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-600">
                       <svg className="h-6 w-6 text-gray-900 dark:text-gray-100" fill="currentColor" viewBox="0 0 24 24">
@@ -132,14 +132,14 @@ export default function Contact() {
                       <p className="text-lg font-semibold text-gray-900 dark:text-white">GitHub</p>
                       <p className="text-gray-500 dark:text-gray-400">github.com/merrickcai</p>
                     </div>
-                    <ArrowTopRightOnSquareIcon className="h-5 w-5 text-gray-400 opacity-0 transition-all group-hover/link:opacity-100 group-hover/link:translate-x-1" />
+                    <ArrowTopRightOnSquareIcon className="h-5 w-5 text-gray-400 opacity-0 transition-all group-hover/link:translate-x-1 group-hover/link:opacity-100" />
                   </Link>
 
                   <Link
                     href="https://linkedin.com/in/merrickcai"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group/link flex items-center rounded-2xl border-2 border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700/50 p-6 transition-all hover:border-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:shadow-lg hover:scale-[1.02]"
+                    className="group/link flex items-center rounded-2xl border-2 border-gray-200 bg-gray-50 p-6 transition-all hover:scale-[1.02] hover:border-blue-400 hover:bg-blue-50 hover:shadow-lg dark:border-gray-600 dark:bg-gray-700/50 dark:hover:bg-blue-900/20"
                   >
                     <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 dark:bg-blue-900/30">
                       <svg className="h-6 w-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
@@ -150,14 +150,14 @@ export default function Contact() {
                       <p className="text-lg font-semibold text-gray-900 dark:text-white">LinkedIn</p>
                       <p className="text-gray-500 dark:text-gray-400">linkedin.com/in/merrickcai</p>
                     </div>
-                    <ArrowTopRightOnSquareIcon className="h-5 w-5 text-gray-400 opacity-0 transition-all group-hover/link:opacity-100 group-hover/link:translate-x-1" />
+                    <ArrowTopRightOnSquareIcon className="h-5 w-5 text-gray-400 opacity-0 transition-all group-hover/link:translate-x-1 group-hover/link:opacity-100" />
                   </Link>
                 </div>
 
-                <div className="mt-8 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 p-6">
+                <div className="mt-8 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 p-6 dark:from-blue-900/20 dark:to-indigo-900/20">
                   <h3 className="mb-3 text-lg font-bold text-gray-900 dark:text-white">Current Status</h3>
                   <p className="mb-2 text-gray-700 dark:text-gray-300">Front-End Developer, Full Stack Developer</p>
-                  <p className="text-sm text-green-600 dark:text-green-400 font-medium">
+                  <p className="text-sm font-medium text-green-600 dark:text-green-400">
                     ✅ Available for new opportunities
                   </p>
                 </div>

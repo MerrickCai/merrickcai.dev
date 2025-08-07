@@ -4,9 +4,9 @@ import GoBackButton from "@/components/GoBackButton";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-950 dark:to-indigo-950 flex items-center justify-center px-4">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 px-4 dark:from-gray-900 dark:via-blue-950 dark:to-indigo-950">
       {/* Floating Elements */}
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20">
         <div className="h-96 w-96 rounded-full bg-gradient-to-r from-red-400 to-orange-400 blur-3xl"></div>
       </div>
 
@@ -25,7 +25,7 @@ export default function NotFound() {
 
         {/* Error Message */}
         <div className="mb-12 space-y-4">
-          <h1 className="text-8xl font-extrabold bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 dark:from-red-400 dark:via-orange-400 dark:to-yellow-400 bg-clip-text text-transparent">
+          <h1 className="bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 bg-clip-text text-8xl font-extrabold text-transparent dark:from-red-400 dark:via-orange-400 dark:to-yellow-400">
             404
           </h1>
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Page Not Found</h2>
@@ -35,8 +35,8 @@ export default function NotFound() {
         </div>
 
         {/* Error Details Card */}
-        <div className="mb-12 mx-auto max-w-md">
-          <div className="rounded-2xl bg-white/80 dark:bg-gray-800/80 p-6 shadow-xl backdrop-blur-sm border border-gray-200/20 dark:border-gray-700/20">
+        <div className="mx-auto mb-12 max-w-md">
+          <div className="rounded-2xl border border-gray-200/20 bg-white/80 p-6 shadow-xl backdrop-blur-sm dark:border-gray-700/20 dark:bg-gray-800/80">
             <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">What you can do:</h3>
             <ul className="space-y-2 text-left text-gray-600 dark:text-gray-300">
               <li className="flex items-center">
@@ -63,7 +63,7 @@ export default function NotFound() {
         <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
           <Link
             href="/"
-            className="group inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all duration-200 hover:from-blue-700 hover:to-indigo-700 hover:shadow-xl hover:scale-105"
+            className="group inline-flex items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-4 text-lg font-semibold text-white shadow-lg transition-all duration-200 hover:scale-105 hover:from-blue-700 hover:to-indigo-700 hover:shadow-xl"
           >
             <HomeIcon className="mr-2 h-5 w-5" />
             Back to Home
@@ -74,10 +74,10 @@ export default function NotFound() {
 
         {/* Help Section */}
         <div className="mt-12 text-center">
-          <p className="text-gray-500 dark:text-gray-400 mb-4">Still need help?</p>
+          <p className="mb-4 text-gray-500 dark:text-gray-400">Still need help?</p>
           <Link
             href="/contact"
-            className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium transition-colors"
+            className="font-medium text-blue-600 transition-colors hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
           >
             Contact Support →
           </Link>

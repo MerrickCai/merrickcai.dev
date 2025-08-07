@@ -4,8 +4,8 @@ export default function AboutLoading() {
       {/* Hero Section Skeleton */}
       <section className="relative px-4 pt-20 pb-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          <div className="mb-6 mx-auto h-8 w-32 animate-pulse rounded-full bg-gray-200 dark:bg-gray-700"></div>
-          <div className="mb-6 mx-auto h-16 w-80 animate-pulse rounded-2xl bg-gray-200 dark:bg-gray-700"></div>
+          <div className="mx-auto mb-6 h-8 w-32 animate-pulse rounded-full bg-gray-200 dark:bg-gray-700"></div>
+          <div className="mx-auto mb-6 h-16 w-80 animate-pulse rounded-2xl bg-gray-200 dark:bg-gray-700"></div>
         </div>
       </section>
 
@@ -15,7 +15,7 @@ export default function AboutLoading() {
           <div className="grid gap-8 lg:grid-cols-3">
             {/* Large card skeleton */}
             <div className="lg:col-span-2">
-              <div className="h-96 animate-pulse rounded-3xl bg-white/80 dark:bg-gray-800/80 p-8">
+              <div className="h-96 animate-pulse rounded-3xl bg-white/80 p-8 dark:bg-gray-800/80">
                 <div className="space-y-4">
                   <div className="h-8 w-3/4 animate-pulse rounded bg-gray-200 dark:bg-gray-600"></div>
                   <div className="h-4 w-full animate-pulse rounded bg-gray-200 dark:bg-gray-600"></div>
@@ -26,7 +26,7 @@ export default function AboutLoading() {
             </div>
 
             {/* Small card skeleton */}
-            <div className="h-96 animate-pulse rounded-3xl bg-white/80 dark:bg-gray-800/80 p-8">
+            <div className="h-96 animate-pulse rounded-3xl bg-white/80 p-8 dark:bg-gray-800/80">
               <div className="space-y-4">
                 <div className="h-6 w-1/2 animate-pulse rounded bg-gray-200 dark:bg-gray-600"></div>
                 <div className="space-y-3">
