@@ -45,35 +45,41 @@ export default function Contact() {
                 <h2 className="mb-8 text-2xl font-bold text-gray-900 dark:text-white">Get In Touch</h2>
 
                 <div className="space-y-6">
-                  <div className="group/item flex items-center rounded-2xl bg-gray-50 dark:bg-gray-700/50 p-6 transition-all hover:bg-blue-50 dark:hover:bg-blue-900/20">
-                    <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover/item:bg-blue-500 group-hover/item:text-white transition-all">
+                  <Link
+                    href="mailto:merrickcai.dev@gmail.com"
+                    className="group/item flex items-center rounded-2xl bg-gray-50 dark:bg-gray-700/50 p-6 transition-all duration-300 hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:scale-[1.02] hover:shadow-md cursor-pointer"
+                  >
+                    <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 group-hover/item:bg-blue-500 group-hover/item:text-white transition-all duration-300 group-hover/item:scale-110 group-hover/item:rotate-3">
                       <EnvelopeIcon className="h-6 w-6" />
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Email</p>
-                      <Link
-                        href="mailto:merrickcai.dev@gmail.com"
-                        className="text-lg font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                      >
+                      <p className="text-lg font-semibold text-gray-900 dark:text-white group-hover/item:text-blue-600 dark:group-hover/item:text-blue-400 transition-colors duration-300">
                         merrickcai.dev@gmail.com
-                      </Link>
+                      </p>
                     </div>
-                  </div>
+                    <div className="opacity-0 group-hover/item:opacity-100 transition-all duration-300 group-hover/item:translate-x-1">
+                      <ArrowTopRightOnSquareIcon className="h-5 w-5 text-blue-500" />
+                    </div>
+                  </Link>
 
-                  <div className="group/item flex items-center rounded-2xl bg-gray-50 dark:bg-gray-700/50 p-6 transition-all hover:bg-green-50 dark:hover:bg-green-900/20">
-                    <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 group-hover/item:bg-green-500 group-hover/item:text-white transition-all">
+                  <Link
+                    href="tel:+12533499378"
+                    className="group/item flex items-center rounded-2xl bg-gray-50 dark:bg-gray-700/50 p-6 transition-all duration-300 hover:bg-green-50 dark:hover:bg-green-900/20 hover:scale-[1.02] hover:shadow-md cursor-pointer"
+                  >
+                    <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-xl bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 group-hover/item:bg-green-500 group-hover/item:text-white transition-all duration-300 group-hover/item:scale-110 group-hover/item:rotate-3">
                       <PhoneIcon className="h-6 w-6" />
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Phone</p>
-                      <Link
-                        href="tel:+12533499378"
-                        className="text-lg font-semibold text-gray-900 dark:text-white hover:text-green-600 dark:hover:text-green-400 transition-colors"
-                      >
+                      <p className="text-lg font-semibold text-gray-900 dark:text-white group-hover/item:text-green-600 dark:group-hover/item:text-green-400 transition-colors duration-300">
                         (253) 349-9378
-                      </Link>
+                      </p>
                     </div>
-                  </div>
+                    <div className="opacity-0 group-hover/item:opacity-100 transition-all duration-300 group-hover/item:translate-x-1">
+                      <ArrowTopRightOnSquareIcon className="h-5 w-5 text-green-500" />
+                    </div>
+                  </Link>
 
                   <div className="group/item flex items-center rounded-2xl bg-gray-50 dark:bg-gray-700/50 p-6 transition-all hover:bg-purple-50 dark:hover:bg-purple-900/20">
                     <div className="mr-4 flex h-12 w-12 items-center justify-center rounded-xl bg-purple-100 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 group-hover/item:bg-purple-500 group-hover/item:text-white transition-all">
