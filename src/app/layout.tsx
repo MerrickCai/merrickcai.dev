@@ -11,7 +11,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
-  title: "Sky Ladder",
+  title: "merrickcai.dev",
   description: "Merrick's blog and projects",
 };
 

@@ -138,7 +138,7 @@ export default function Projects() {
               </div>
             </div>
 
-            {/* Sky Ladder Project */}
+            {/* merrickcai.dev Project */}
             <div className="group relative overflow-hidden rounded-3xl bg-white/80 p-8 shadow-xl backdrop-blur-sm transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl dark:bg-gray-800/80">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 opacity-0 transition-opacity group-hover:opacity-100"></div>
               <div className="relative">
@@ -147,7 +147,7 @@ export default function Projects() {
                     <CodeBracketIcon className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div>
-                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Sky Ladder</h2>
+                    <h2 className="text-2xl font-bold text-gray-900 dark:text-white">merrickcai.dev</h2>
                     <p className="text-sm font-medium tracking-wide text-blue-600 uppercase dark:text-blue-400">
                       Personal Blog • Current Project
                     </p>
