@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { HomeIcon, InformationCircleIcon, EnvelopeIcon, CodeBracketIcon } from "@heroicons/react/24/solid";
-import ThemeSwitcher from "@/ui/ThemeSwitcher";
+import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 
 const navLinks = [
   {
@@ -121,8 +121,8 @@ export default function Header() {
             isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="border-t border-gray-200/20 bg-white/95 backdrop-blur-md dark:border-gray-700/20 dark:bg-gray-900/95">
-            <nav className="flex flex-col space-y-1 px-4 py-2">
+          <div className="border-t border-gray-200/20 dark:border-gray-700/20">
+            <nav className="flex flex-col space-y-1 px-3 py-2">
               {navLinks.map((link, index) => {
                 const isActive = pathname === link.href;
                 const Icon = link.icon;

@@ -1,8 +1,8 @@
-# **Sky Ladder - A Personal Blog**
+# **merrickcai.dev - A Personal Blog**
 
 **Live at**: [merrickcai.dev](https://merrickcai.dev)
 
-Sky Ladder is a modern personal blog focused on **frontend development, web technologies, and software engineering**. Built with **Next.js** and deployed on **Vercel**, it delivers a **fast, responsive, and optimized reading experience**.
+merrickcai.dev is a modern personal blog focused on **frontend development, web technologies, and software engineering**. Built with **Next.js** and deployed on **Vercel**, it delivers a **fast, responsive, and optimized reading experience**.
 
 ## **🛠 Tech Stack**
 
@@ -17,8 +17,8 @@ Sky Ladder is a modern personal blog focused on **frontend development, web tech
 Clone the repository and run the project locally:
 
 ```sh
-git clone https://github.com/merrickcai/sky-ladder.git
-cd sky-ladder
+git clone https://github.com/merrickcai/merrickcai.dev.git
+cd merrickcai.dev
 npm install
 npm run dev
 ```
@@ -34,4 +34,4 @@ Feel free to build your own blog! 🌟
 💼 **LinkedIn**: [linkedin.com/in/merrickcai](https://linkedin.com/in/merrickcai)  
 🐙 **GitHub**: [github.com/merrickcai](https://github.com/merrickcai)
 
-**Sky Ladder** is where I share insights, tutorials, and experiences in **frontend development and beyond**. Stay tuned for more updates! 🚀
+**merrickcai.dev** is where I share insights, tutorials, and experiences in **frontend development and beyond**. Stay tuned for more updates! 🚀

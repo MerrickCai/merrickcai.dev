@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { HomeIcon, MagnifyingGlassIcon, ExclamationTriangleIcon } from "@heroicons/react/24/outline";
-import GoBackButton from "@/components/GoBackButton";
+import GoBackButton from "@/app/components/GoBackButton";
 
 export default function NotFound() {
   return (
