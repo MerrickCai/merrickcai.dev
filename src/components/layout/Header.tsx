@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { HomeIcon, InformationCircleIcon, EnvelopeIcon, CodeBracketIcon } from "@heroicons/react/24/solid";
-import ThemeSwitcher from "@/ui/ThemeSwitcher";
+import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 
 const navLinks = [
   {
