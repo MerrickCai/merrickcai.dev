@@ -9,6 +9,41 @@ import {
 } from "@heroicons/react/24/outline";
 
 export default function Projects() {
+  const badgeBase = "rounded-full px-3 py-1 text-xs font-medium transition-all hover:scale-105";
+  const colorClasses = {
+    blue: "bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-200",
+    indigo: "bg-indigo-100 text-indigo-800 dark:bg-indigo-900/30 dark:text-indigo-200",
+    cyan: "bg-cyan-100 text-cyan-800 dark:bg-cyan-900/30 dark:text-cyan-200",
+    green: "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-200",
+    purple: "bg-purple-100 text-purple-800 dark:bg-purple-900/30 dark:text-purple-200",
+    orange: "bg-orange-100 text-orange-800 dark:bg-orange-900/30 dark:text-orange-200",
+    red: "bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-200",
+    yellow: "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-200",
+  };
+
+  const frontendTech = [
+    { name: "Next.js 15.4.1", color: "blue" as const },
+    { name: "TypeScript", color: "indigo" as const },
+    { name: "Tailwind CSS v4", color: "cyan" as const },
+    { name: "Supabase", color: "green" as const },
+    { name: "next-intl", color: "purple" as const },
+    { name: "Heroicons", color: "orange" as const },
+  ];
+
+  const backendTech = [
+    { name: "Spring (Java)", color: "red" as const },
+    { name: "PostgreSQL", color: "blue" as const },
+    { name: "AWS App Runner", color: "yellow" as const },
+    { name: "AWS S3", color: "orange" as const },
+  ];
+
+  const personalTech = [
+    { name: "Next.js 15", color: "blue" as const },
+    { name: "TypeScript", color: "indigo" as const },
+    { name: "Tailwind CSS", color: "cyan" as const },
+    { name: "Heroicons", color: "orange" as const },
+  ];
+
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-950 dark:to-indigo-950">
       {/* Hero Section */}
@@ -65,18 +100,8 @@ export default function Projects() {
                 <div className="mb-6">
                   <h4 className="mb-3 font-semibold text-gray-900 dark:text-white">🛠️ Frontend Tech Stack</h4>
                   <div className="flex flex-wrap gap-2">
-                    {[
-                      { name: "Next.js 15.4.1", color: "blue" },
-                      { name: "TypeScript", color: "indigo" },
-                      { name: "Tailwind CSS v4", color: "cyan" },
-                      { name: "Supabase", color: "green" },
-                      { name: "next-intl", color: "purple" },
-                      { name: "Heroicons", color: "orange" },
-                    ].map((tech) => (
-                      <span
-                        key={tech.name}
-                        className={`rounded-full bg-${tech.color}-100 dark:bg-${tech.color}-900/30 px-3 py-1 text-xs font-medium text-${tech.color}-800 dark:text-${tech.color}-200 transition-all hover:scale-105`}
-                      >
+                    {frontendTech.map((tech) => (
+                      <span key={tech.name} className={`${badgeBase} ${colorClasses[tech.color]}`}>
                         {tech.name}
                       </span>
                     ))}
@@ -110,16 +135,8 @@ export default function Projects() {
                     🔧 Backend Architecture (External Team)
                   </h4>
                   <div className="flex flex-wrap gap-2">
-                    {[
-                      { name: "Spring (Java)", color: "red" },
-                      { name: "PostgreSQL", color: "blue" },
-                      { name: "AWS App Runner", color: "yellow" },
-                      { name: "AWS S3", color: "orange" },
-                    ].map((tech) => (
-                      <span
-                        key={tech.name}
-                        className={`rounded-full bg-${tech.color}-100 dark:bg-${tech.color}-900/30 px-3 py-1 text-xs font-medium text-${tech.color}-800 dark:text-${tech.color}-200`}
-                      >
+                    {backendTech.map((tech) => (
+                      <span key={tech.name} className={`${badgeBase} ${colorClasses[tech.color]}`}>
                         {tech.name}
                       </span>
                     ))}
@@ -162,16 +179,8 @@ export default function Projects() {
                 <div className="mb-6">
                   <h4 className="mb-3 font-semibold text-gray-900 dark:text-white">🛠️ Tech Stack</h4>
                   <div className="flex flex-wrap gap-2">
-                    {[
-                      { name: "Next.js 15", color: "blue" },
-                      { name: "TypeScript", color: "indigo" },
-                      { name: "Tailwind CSS", color: "cyan" },
-                      { name: "Heroicons", color: "orange" },
-                    ].map((tech) => (
-                      <span
-                        key={tech.name}
-                        className={`rounded-full bg-${tech.color}-100 dark:bg-${tech.color}-900/30 px-3 py-1 text-xs font-medium text-${tech.color}-800 dark:text-${tech.color}-200 transition-all hover:scale-105`}
-                      >
+                    {personalTech.map((tech) => (
+                      <span key={tech.name} className={`${badgeBase} ${colorClasses[tech.color]}`}>
                         {tech.name}
                       </span>
                     ))}
