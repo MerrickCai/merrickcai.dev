@@ -4,7 +4,13 @@ import { useState } from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { HomeIcon, InformationCircleIcon, EnvelopeIcon, CodeBracketIcon } from "@heroicons/react/24/solid";
+import {
+  HomeIcon,
+  InformationCircleIcon,
+  CodeBracketIcon,
+  EnvelopeIcon,
+  ChatBubbleLeftRightIcon,
+} from "@heroicons/react/24/solid";
 import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 
 const navLinks = [
@@ -27,6 +33,11 @@ const navLinks = [
     href: "/contact",
     label: "Contact",
     icon: EnvelopeIcon,
+  },
+  {
+    href: "/comments",
+    label: "Comments",
+    icon: ChatBubbleLeftRightIcon,
   },
 ];
 
