@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
 import ThemeScript from "@/components/ThemeScript";
+import { Toaster } from "sonner";
 
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -49,6 +50,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {/* Speed Insights and Analytics */}
         <SpeedInsights />
         <Analytics />
+
+        {/* Sonner Toaster for notifications */}
+        <Toaster richColors closeButton offset={{ top: "90px" }} position="top-center" />
       </body>
     </html>
   );
