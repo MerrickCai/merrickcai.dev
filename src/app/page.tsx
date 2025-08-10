@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import RevealOnScroll from "@/components/layout/RevealOnScroll";
 import TypewriterText from "@/components/ui/TypewriterText";
@@ -13,6 +14,12 @@ import {
   StarIcon,
   SparklesIcon,
 } from "@heroicons/react/24/outline";
+
+export const metadata: Metadata = {
+  title: "Home | MerrickCai.dev",
+  description:
+    "Welcome to Merrick Cai's personal website - Front-end Engineer, Full-stack Developer, and Problem Solver",
+};
 
 export default function Home() {
   return (

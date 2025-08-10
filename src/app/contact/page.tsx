@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
   EnvelopeIcon,
@@ -7,6 +8,11 @@ import {
   ArrowTopRightOnSquareIcon,
   SparklesIcon,
 } from "@heroicons/react/24/outline";
+
+export const metadata: Metadata = {
+  title: "Contact | MerrickCai.dev",
+  description: "Get in touch with Merrick Cai - Ready to bring your ideas to life",
+};
 
 export default function Contact() {
   return (

@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import { MapPinIcon, ArrowRightIcon, SparklesIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "About | MerrickCai.dev",
+  description: "Learn more about Merrick Cai - his background, skills, and journey as a Front-end Engineer",
+};
 
 export default function About() {
   return (
