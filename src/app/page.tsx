@@ -6,6 +6,7 @@ import FloatingParticles from "@/components/ui/FloatingParticles";
 
 import {
   ArrowRightIcon,
+  ArrowTopRightOnSquareIcon,
   CodeBracketIcon,
   UserIcon,
   RocketLaunchIcon,
@@ -209,15 +210,24 @@ export default function Home() {
                     Detailed documentation of my learning journey, best practices, and insights from frontend
                     development projects.
                   </p>
-                  <Link
-                    href="https://merrickcai.notion.site/Frontend-Development-188e3a07cc988036a524c65fb43d2d06"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center text-sm font-medium text-orange-600 hover:text-orange-700 sm:text-base dark:text-orange-400 dark:hover:text-orange-300"
-                  >
-                    View on Notion
-                    <ArrowRightIcon className="ml-1 h-3 w-3 sm:h-4 sm:w-4" />
-                  </Link>
+                  <div className="flex flex-wrap gap-5">
+                    <Link
+                      href="/notes"
+                      className="inline-flex items-center text-sm font-medium text-orange-600 hover:text-orange-700 sm:text-base dark:text-orange-400 dark:hover:text-orange-300"
+                    >
+                      View Here
+                      <ArrowRightIcon className="ml-1 h-3 w-3 sm:h-4 sm:w-4" />
+                    </Link>
+                    <Link
+                      href="https://merrickcai.notion.site/frontend-development"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-sm font-medium text-orange-600 hover:text-orange-700 sm:text-base dark:text-orange-400 dark:hover:text-orange-300"
+                    >
+                      View on Notion
+                      <ArrowTopRightOnSquareIcon className="ml-1 h-3 w-3 sm:h-4 sm:w-4" />
+                    </Link>
+                  </div>
                 </div>
               </div>
             </RevealOnScroll>
