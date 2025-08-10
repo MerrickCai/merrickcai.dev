@@ -29,9 +29,9 @@ export default function Home() {
       <FloatingParticles count={30} />
 
       {/* Hero Section */}
-      <section className="relative px-4 pt-16 pb-8 sm:px-6 lg:px-8">
+      <section className="relative px-4 pt-10 pb-6 sm:px-6 lg:px-8">
         <RevealOnScroll>
-          <div className="relative z-2 mx-auto max-w-4xl text-center">
+          <div className="relative z-2 mx-auto max-w-6xl text-center">
             <div className="mb-4 inline-flex items-center rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-800 dark:bg-blue-900/30 dark:text-blue-200">
               <SparklesIcon className="mr-2 h-4 w-4" />
               Welcome to my digital space
@@ -57,7 +57,7 @@ export default function Home() {
               />
             </div>
 
-            <p className="mx-auto mb-6 max-w-2xl text-lg leading-7 text-gray-600 sm:text-xl sm:leading-8 dark:text-gray-300">
+            <p className="mx-auto mb-6 max-w-4xl text-lg leading-7 text-gray-600 sm:text-xl sm:leading-8 dark:text-gray-300">
               Crafting exceptional digital experiences with React, Next.js, and modern web technologies. Building the
               future, one component at a time.
             </p>
@@ -82,8 +82,8 @@ export default function Home() {
           </div>
 
           {/* Floating Elements */}
-          <div className="absolute top-1/2 left-1/2 z-1 -translate-x-1/2 -translate-y-1/2 opacity-25">
-            <div className="h-72 w-72 rounded-full bg-gradient-to-r from-blue-400 to-indigo-400 blur-3xl sm:h-96 sm:w-96"></div>
+          <div className="absolute top-1/2 left-1/2 z-1 -translate-x-1/2 -translate-y-1/2 opacity-30">
+            <div className="h-60 w-60 rounded-full bg-gradient-to-r from-blue-400 to-indigo-400 blur-3xl sm:h-72 sm:w-72"></div>
           </div>
         </RevealOnScroll>
       </section>
