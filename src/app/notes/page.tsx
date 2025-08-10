@@ -38,17 +38,15 @@ export default function Notes() {
       {/* Notion Embed Section */}
       <section className="relative px-4 pb-12 sm:px-6 sm:pb-16 lg:px-8">
         <div className="mx-auto max-w-7xl">
+          {/* Embed Container */}
           <div className="overflow-hidden rounded-2xl bg-white/80 shadow-2xl backdrop-blur-sm dark:bg-gray-800/80">
             {/* Embed Header */}
-            <div className="border-b border-gray-200 bg-gradient-to-r from-orange-50 to-red-50 px-6 py-4 dark:border-gray-700 dark:from-orange-900/20 dark:to-red-900/20">
-              <div className="flex items-center justify-between">
-                <div className="flex items-center">
-                  <DocumentTextIcon className="mr-3 h-6 w-6 text-orange-600 dark:text-orange-400" />
+            <div className="border-b border-gray-200 bg-gradient-to-r from-orange-50 to-red-50 px-4 py-3 md:px-6 md:py-4 dark:border-gray-700 dark:from-orange-900/20 dark:to-red-900/20">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center gap-3">
+                  <DocumentTextIcon className="h-6 w-6 text-orange-600 dark:text-orange-400" />
                   <div>
-                    <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      Frontend Development Documentation
-                    </h2>
-                    <p className="text-sm text-gray-600 dark:text-gray-300">Comprehensive notes and best practices</p>
+                    <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Frontend Development Notes</h2>
                   </div>
                 </div>
                 <Link
