@@ -162,7 +162,7 @@ export default function Contact() {
                       <p className="text-base font-semibold text-gray-900 sm:text-lg dark:text-white">LinkedIn</p>
                       <p className="truncate text-sm text-gray-500 dark:text-gray-400">linkedin.com/in/merrickcai</p>
                     </div>
-                    <ArrowTopRightOnSquareIcon className="group_hover/link:opacity-100 h-4 w-4 text-gray-400 opacity-0 transition-all group-hover/link:translate-x-1 sm:h-5 sm:w-5" />
+                    <ArrowTopRightOnSquareIcon className="h-4 w-4 text-gray-400 opacity-0 transition-all group-hover/link:translate-x-1 group-hover/link:opacity-100 sm:h-5 sm:w-5" />
                   </Link>
                 </div>
 

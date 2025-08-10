@@ -72,38 +72,40 @@ export function Inspect(value: unknown, { depth = 3, indent = 3 }: InspectOpts =
   return format(value, 1);
 }
 
+const IS_PRODUCTION = process.env.NODE_ENV === "production";
+
 // basic log levels
 export const logger = {
   info: (msg: string) => {
-    if (process.env.NODE_ENV === "production") {
+    if (IS_PRODUCTION) {
       console.log(`[INFO] ${msg}`);
       return;
     }
     console.log(wrap(`\nℹ️  INFO: ${msg}\n`, "blue", "bright"));
   },
   success: (msg: string) => {
-    if (process.env.NODE_ENV === "production") {
+    if (IS_PRODUCTION) {
       console.log(`[SUCCESS] ${msg}`);
       return;
     }
     console.log(wrap(`\n✅  SUCCESS: ${msg}\n`, "green", "bright"));
   },
   warn: (msg: string) => {
-    if (process.env.NODE_ENV === "production") {
+    if (IS_PRODUCTION) {
       console.log(`[WARN] ${msg}`);
       return;
     }
     console.log(wrap(`\n⚠️  WARN: ${msg}\n`, "yellow", "bright"));
   },
   error: (msg: string) => {
-    if (process.env.NODE_ENV === "production") {
+    if (IS_PRODUCTION) {
       console.log(`[ERROR] ${msg}`);
       return;
     }
     console.log(wrap(`\n❌  ERROR: ${msg}\n`, "red", "bright"));
   },
   dir: (data: unknown, opts?: InspectOpts) => {
-    if (process.env.NODE_ENV === "production") {
+    if (IS_PRODUCTION) {
       console.log(data);
       return;
     }
