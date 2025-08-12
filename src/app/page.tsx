@@ -14,6 +14,7 @@ import {
   EnvelopeIcon,
   StarIcon,
   SparklesIcon,
+  CubeIcon,
 } from "@heroicons/react/24/outline";
 
 export const metadata: Metadata = {
@@ -170,6 +171,43 @@ export default function Home() {
             </RevealOnScroll>
 
             <RevealOnScroll delay={0.6}>
+              {/* 3D Playground Card */}
+              <div className="group relative overflow-hidden rounded-2xl bg-white/70 p-5 shadow-xl backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-2xl sm:p-8 dark:bg-gray-800/60">
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-blue-500/10 to-indigo-500/10 opacity-0 transition-opacity group-hover:opacity-100"></div>
+                <div className="relative">
+                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-blue-100 sm:mb-4 sm:h-12 sm:w-12 dark:bg-blue-900/30">
+                    <CubeIcon className="h-5 w-5 text-blue-600 sm:h-6 sm:w-6 dark:text-blue-400" />
+                  </div>
+                  <h3 className="mb-2 text-lg font-semibold text-gray-900 sm:mb-3 sm:text-xl dark:text-white">
+                    3D Playground
+                  </h3>
+                  <p className="mb-3 text-sm text-gray-600 sm:mb-4 sm:text-base dark:text-gray-300">
+                    An interactive 3D scene featuring glass materials, dynamic animations, particle effects, and smooth
+                    orbit controls—all built with React Three Fiber.
+                  </p>
+                  <div className="mb-4 flex flex-wrap gap-1.5 sm:gap-2">
+                    <span className="rounded-full bg-blue-100 px-2 py-1 text-xs font-medium text-blue-800 sm:px-3 sm:text-xs dark:bg-blue-900/30 dark:text-blue-200">
+                      React Three Fiber
+                    </span>
+                    <span className="rounded-full bg-indigo-100 px-2 py-1 text-xs font-medium text-indigo-800 sm:px-3 sm:text-xs dark:bg-indigo-900/30 dark:text-indigo-200">
+                      Three.js
+                    </span>
+                    <span className="rounded-full bg-emerald-100 px-2 py-1 text-xs font-medium text-emerald-800 sm:px-3 sm:text-xs dark:bg-emerald-900/30 dark:text-emerald-200">
+                      WebGL
+                    </span>
+                  </div>
+                  <Link
+                    href="/3d"
+                    className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-700 sm:text-base dark:text-blue-400 dark:hover:text-blue-300"
+                  >
+                    Explore Playground
+                    <ArrowRightIcon className="ml-1 h-3 w-3 sm:h-4 sm:w-4" />
+                  </Link>
+                </div>
+              </div>
+            </RevealOnScroll>
+
+            <RevealOnScroll delay={0.2}>
               {/* My Projects Card */}
               <div className="group relative overflow-hidden rounded-2xl bg-white/80 p-5 shadow-xl backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-2xl sm:p-8 dark:bg-gray-800/80">
                 <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-emerald-500/10 opacity-0 transition-opacity group-hover:opacity-100"></div>
@@ -195,7 +233,7 @@ export default function Home() {
               </div>
             </RevealOnScroll>
 
-            <RevealOnScroll delay={0.2}>
+            <RevealOnScroll delay={0.4}>
               {/* Development Notes Card */}
               <div className="group relative overflow-hidden rounded-2xl bg-white/80 p-5 shadow-xl backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-2xl sm:p-8 dark:bg-gray-800/80">
                 <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-red-500/10 opacity-0 transition-opacity group-hover:opacity-100"></div>
@@ -232,7 +270,7 @@ export default function Home() {
               </div>
             </RevealOnScroll>
 
-            <RevealOnScroll delay={0.4}>
+            <RevealOnScroll delay={0.6}>
               {/* Contact Card */}
               <div className="group relative overflow-hidden rounded-2xl bg-white/80 p-5 shadow-xl backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-2xl sm:p-8 dark:bg-gray-800/80">
                 <div className="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-cyan-500/10 opacity-0 transition-opacity group-hover:opacity-100"></div>
@@ -256,7 +294,7 @@ export default function Home() {
               </div>
             </RevealOnScroll>
 
-            <RevealOnScroll delay={0.6}>
+            <RevealOnScroll delay={0.2}>
               {/* Upcoming Features Card */}
               <div className="group relative overflow-hidden rounded-2xl bg-white/80 p-5 shadow-xl backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-2xl sm:p-8 dark:bg-gray-800/80">
                 <div className="absolute inset-0 bg-gradient-to-br from-violet-500/10 to-purple-500/10 opacity-0 transition-opacity group-hover:opacity-100"></div>
