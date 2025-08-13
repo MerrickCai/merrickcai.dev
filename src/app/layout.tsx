@@ -9,9 +9,6 @@ import { Toaster } from "sonner";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/next";
-
 export const metadata: Metadata = {
   title: "MerrickCai.dev",
   description: "Merrick's blog and projects",
@@ -46,10 +43,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <main className="flex-grow pt-16">{children}</main>
           <Footer />
         </div>
-
-        {/* Speed Insights and Analytics */}
-        <SpeedInsights />
-        <Analytics />
 
         {/* Sonner Toaster for notifications */}
         <Toaster richColors closeButton offset={{ top: "90px" }} position="top-center" />

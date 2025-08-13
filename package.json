@@ -15,8 +15,6 @@
     "@react-three/fiber": "^9.3.0",
     "@upstash/ratelimit": "^2.0.6",
     "@upstash/redis": "^1.35.3",
-    "@vercel/analytics": "^1.5.0",
-    "@vercel/speed-insights": "^1.2.0",
     "boxen": "^8.0.1",
     "motion": "^12.23.12",
     "next": "15.4.6",
