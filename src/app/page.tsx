@@ -21,6 +21,7 @@ export const metadata: Metadata = {
   title: "Home | MerrickCai.dev",
   description:
     "Welcome to Merrick Cai's personal website - Front-end Engineer, Full-stack Developer, and Problem Solver",
+  alternates: { canonical: "/" },
 };
 
 export default function Home() {

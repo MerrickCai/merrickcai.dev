@@ -5,6 +5,7 @@ import ThreeDShowcase from "./components/ThreeDShowcase";
 export const metadata: Metadata = {
   title: "3D Playground | MerrickCai.dev",
   description: "A minimal 3D playground built with React Three Fiber.",
+  alternates: { canonical: "/3d" },
 };
 
 export default function ThreeDPage() {

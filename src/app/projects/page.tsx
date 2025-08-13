@@ -12,6 +12,7 @@ import {
 export const metadata: Metadata = {
   title: "Projects | MerrickCai.dev",
   description: "Showcasing my work and projects in frontend development.",
+  alternates: { canonical: "/projects" },
 };
 
 export default function Projects() {

@@ -10,8 +10,15 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL!),
   title: "MerrickCai.dev",
   description: "Merrick's blog and projects",
+  applicationName: "MerrickCai.dev",
+  authors: { name: "Merrick Cai", url: process.env.NEXT_PUBLIC_BASE_URL! },
+  creator: "Merrick Cai",
+  publisher: "Merrick Cai",
+  robots: process.env.NODE_ENV === "production" ? { index: true, follow: true } : { index: false, follow: false },
+  alternates: { canonical: "/" },
   appleWebApp: {
     capable: true,
     title: "MerrickCai.dev",

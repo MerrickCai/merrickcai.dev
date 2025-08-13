@@ -7,6 +7,7 @@ import CommentList from "@/app/comments/components/CommentList";
 export const metadata: Metadata = {
   title: "Comments | MerrickCai.dev",
   description: "Leave a comment and share your thoughts",
+  alternates: { canonical: "/comments" },
 };
 
 export default function CommentsPage() {

@@ -6,6 +6,7 @@ export const metadata: Metadata = {
   title: "Development Notes | MerrickCai.dev",
   description:
     "Detailed documentation of my learning journey, best practices, and insights from frontend development projects",
+  alternates: { canonical: "/notes" },
 };
 
 export default function Notes() {

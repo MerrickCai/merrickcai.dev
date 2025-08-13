@@ -12,6 +12,7 @@ import {
 export const metadata: Metadata = {
   title: "Contact | MerrickCai.dev",
   description: "Get in touch with Merrick Cai - Ready to bring your ideas to life",
+  alternates: { canonical: "/contact" },
 };
 
 export default function Contact() {

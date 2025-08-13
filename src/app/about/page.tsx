@@ -5,6 +5,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About | MerrickCai.dev",
   description: "Learn more about Merrick Cai - his background, skills, and journey as a Front-end Engineer",
+  alternates: { canonical: "/about" },
 };
 
 export default function About() {
