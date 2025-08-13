@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import {
   ArrowTopRightOnSquareIcon,
   SparklesIcon,
@@ -7,6 +8,11 @@ import {
   RocketLaunchIcon,
   ArrowRightIcon,
 } from "@heroicons/react/24/outline";
+
+export const metadata: Metadata = {
+  title: "Projects | MerrickCai.dev",
+  description: "Showcasing my work and projects in frontend development.",
+};
 
 export default function Projects() {
   const badgeBase = "rounded-full px-2 py-1 text-xs font-medium transition-all hover:scale-105 sm:px-3 sm:text-sm";
