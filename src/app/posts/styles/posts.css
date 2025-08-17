@@ -1,0 +1,138 @@
+/* ============================================================================
+   Purpose: Syntax highlighting styles for rehype-pretty-code rendered code blocks and inline code.
+   ============================================================================
+*/
+
+@layer components {
+  /* ==========================================================================
+     Figure container for rehype-pretty-code output (code blocks)
+     - Outer wrapper: spacing, border, rounded corners, background,
+       shadow, transition, and dark-mode variants.
+     ========================================================================== */
+  figure[data-rehype-pretty-code-figure] {
+    @apply relative my-4 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl transition-shadow duration-300 hover:shadow-2xl sm:my-6 dark:border-gray-700 dark:bg-gray-900;
+
+    &:focus-within {
+      @apply ring-2 ring-indigo-500/50 ring-offset-2 ring-offset-white dark:ring-offset-gray-900;
+    }
+
+    /* -----------------------------------------------------------------------
+       Title and caption area
+       - Title: top area, bold small text, bottom border
+       - Caption: bottom area, small caption text, top border
+       ----------------------------------------------------------------------- */
+    /******************** Title and caption ********************/
+    div[data-rehype-pretty-code-title] {
+      @apply mb-0 border-b border-gray-200 bg-gray-50 px-6 py-4 text-sm font-bold text-gray-800 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-200;
+    }
+
+    figcaption[data-rehype-pretty-code-caption] {
+      @apply mt-0 border-t border-gray-200 bg-gray-50 px-6 py-3 text-xs text-gray-600 dark:border-gray-700 dark:bg-gray-800 dark:text-gray-400;
+    }
+
+    /* -----------------------------------------------------------------------
+       Code block theme & layout
+       - Applies to code blocks with a `data-theme` attribute
+       - Handles max height, overflow, fonts, padding, and dark-theme variants
+       ----------------------------------------------------------------------- */
+    /******************** Theme background ********************/
+    code[data-theme] {
+      @apply block max-h-150 overflow-auto bg-slate-50 p-1 font-mono text-xs leading-none sm:overscroll-contain sm:p-3 sm:text-sm dark:bg-gray-900;
+
+      /* Custom scrollbar styling for code blocks */
+      scrollbar-width: thin;
+      scrollbar-color: rgba(99, 102, 241, 0.5) transparent;
+
+      &::-webkit-scrollbar {
+        @apply h-2 w-2;
+      }
+
+      &::-webkit-scrollbar-track {
+        @apply bg-transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        @apply rounded-lg transition-all duration-300;
+        background: rgb(99 102 241 / 0.3);
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background: rgb(99 102 241 / 0.5);
+      }
+
+      /* ---------------------------------------------------------------------
+         Per-line container and highlighting
+         - Each source line is wrapped in `span[data-line]`
+         - Supports highlighted-line state via `data-highlighted-line`
+         --------------------------------------------------------------------- */
+      span[data-line] {
+        /******************** Line highlighting ********************/
+        @apply relative border-l-3 border-transparent px-1 py-0.5 hover:bg-gray-200/50 sm:border-l-4 sm:px-2 sm:py-1 dark:hover:bg-gray-800/50;
+
+        /* Highlighted line visuals */
+        &[data-highlighted-line] {
+          @apply border-l-blue-500 bg-blue-500/10 dark:border-l-blue-400 dark:bg-blue-400/15;
+        }
+
+        /* -------------------------------------------------------------------
+           Syntax token styles inside a line (inner spans)
+           - Keeps shiki variables for light/dark token coloring
+           - Smooth transitions for theme changes
+           ------------------------------------------------------------------- */
+        /******************** Syntax highlighting token styles ********************/
+        span {
+          @apply text-(--shiki-light) transition-colors duration-300 dark:text-(--shiki-dark);
+        }
+      }
+
+      /* ---------------------------------------------------------------------
+         Character/word-level highlighting (rehype-pretty-code)
+         - `mark[data-highlighted-chars]` used for inline char highlights
+         --------------------------------------------------------------------- */
+      /******************** Word highlighting ********************/
+      mark[data-highlighted-chars] {
+        @apply inline-block rounded-md bg-yellow-200 px-1 py-0.5 sm:px-1.5 sm:py-1 dark:bg-yellow-500/40;
+      }
+
+      /* ---------------------------------------------------------------------
+         Line numbers support
+         - Uses CSS counters; supports varying max-digit widths
+         --------------------------------------------------------------------- */
+      /******************** Line numbers ********************/
+      &[data-line-numbers] {
+        counter-reset: line;
+      }
+
+      &[data-line-numbers] > span[data-line]::before {
+        counter-increment: line;
+        content: counter(line);
+        @apply mr-1.5 inline-block border-r border-gray-300 pr-1.5 text-right text-xs text-gray-400 select-none sm:mr-3 sm:pr-3 dark:border-gray-700 dark:text-gray-500;
+        @apply w-3 sm:w-4;
+      }
+
+      /* Width adjustments for different max digit counts */
+      &[data-line-numbers-max-digits="2"] > span[data-line]::before {
+        @apply w-5 sm:w-6;
+      }
+      &[data-line-numbers-max-digits="3"] > span[data-line]::before {
+        @apply w-7 sm:w-8;
+      }
+      &[data-line-numbers-max-digits="4"] > span[data-line]::before {
+        @apply w-9 sm:w-10;
+      }
+
+      /* Hover tweak for the line-number area */
+      &[data-line-numbers] > span[data-line]:hover::before {
+        @apply text-gray-600 dark:text-gray-400;
+      }
+    }
+  }
+
+  /* ==========================================================================
+     Inline code (not inside <pre>) enhancements
+     - Rounded pill, solid background, hover effects for emphasis
+     ========================================================================== */
+  :not(pre[data-theme]) > code {
+    @apply relative rounded-lg bg-gray-100 px-1 py-0.5 font-mono text-sm font-semibold text-blue-600 shadow-sm transition-all duration-300 hover:bg-gray-200 hover:shadow-md sm:px-2.5 sm:py-1.5 dark:bg-gray-800 dark:text-blue-400 dark:hover:bg-gray-700;
+  }
+}

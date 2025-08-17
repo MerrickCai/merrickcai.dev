@@ -10,6 +10,7 @@ import {
   CodeBracketIcon,
   EnvelopeIcon,
   ChatBubbleLeftRightIcon,
+  NewspaperIcon,
 } from "@heroicons/react/24/solid";
 import ThemeSwitcher from "@/components/ui/ThemeSwitcher";
 
@@ -38,6 +39,11 @@ const navLinks = [
     href: "/comments",
     label: "Comments",
     icon: ChatBubbleLeftRightIcon,
+  },
+  {
+    href: "/posts",
+    label: "Posts",
+    icon: NewspaperIcon,
   },
 ];
 

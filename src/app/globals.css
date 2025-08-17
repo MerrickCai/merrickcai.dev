@@ -1,7 +1,9 @@
 @import "tailwindcss" source(none);
+@import "./posts/styles/posts.css";
 
 @source "../app/";
 @source "../components/";
+@source "../mdx-components.tsx";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
