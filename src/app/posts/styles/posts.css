@@ -1,8 +1,12 @@
 /* ============================================================================
-   Purpose: Syntax highlighting styles for rehype-pretty-code rendered code blocks and inline code.
+   Purpose: Syntax highlighting styles for rehype-pretty-code rendered code blocks and inline code. And KaTeX support.
    ============================================================================
 */
 
+/* KaTeX Styles */
+@import "katex/dist/katex.min.css";
+
+/* Code Styles */
 @layer components {
   /* ==========================================================================
      Figure container for rehype-pretty-code output (code blocks)

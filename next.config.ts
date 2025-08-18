@@ -15,8 +15,11 @@ const nextConfig: NextConfig = {
 const withMDX = createMDX({
   extension: /\.(md|mdx)$/,
   options: {
-    remarkPlugins: [],
+    // @ts-expect-error wrong types
+    remarkPlugins: [["remark-math"]],
     rehypePlugins: [
+      // @ts-expect-error wrong types
+      ["rehype-katex"],
       [
         // @ts-expect-error wrong types
         "rehype-pretty-code",
