@@ -103,17 +103,12 @@ export default function Header() {
             })}
           </nav>
 
-          {/* Right side - Desktop */}
-          <div className="hidden items-center lg:flex">
-            <ThemeSwitcher />
-          </div>
-
-          {/* Right side - Mobile */}
-          <div className="flex items-center space-x-2 lg:hidden">
+          {/* Right side - ThemeSwitcher and Mobile Menu Button */}
+          <div className="flex items-center space-x-2">
             <ThemeSwitcher />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="inline-flex cursor-pointer items-center justify-center rounded-lg p-2 text-gray-400 transition-all duration-300 hover:scale-110 hover:bg-gray-100 hover:text-gray-500 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none active:scale-95 dark:hover:bg-gray-800 dark:hover:text-gray-300"
+              className="inline-flex cursor-pointer items-center justify-center rounded-lg p-2 text-gray-400 transition-all duration-300 hover:scale-110 hover:bg-gray-100 hover:text-gray-500 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none active:scale-95 lg:hidden dark:hover:bg-gray-800 dark:hover:text-gray-300"
               aria-label="Toggle mobile menu"
             >
               <div className="relative">
