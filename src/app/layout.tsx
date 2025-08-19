@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   appleWebApp: {
     capable: true,
     title: "MerrickCai.dev",
-    startupImage: "/favicon.png",
+    startupImage: "/favicon/favicon.png",
     statusBarStyle: "black-translucent",
   },
 };
