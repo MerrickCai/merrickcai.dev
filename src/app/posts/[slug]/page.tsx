@@ -36,24 +36,22 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   const { metadata, content: PostContent } = selectPost(allPosts, slug);
 
   return (
-    <div className="relative min-h-screen w-full bg-slate-50 dark:bg-slate-900">
-      {/* Navigation */}
-      <nav className="px-4 pt-6 sm:px-6 sm:pt-8 lg:px-8">
-        <div className="mx-auto max-w-6xl">
+    <div className="relative flex min-h-screen w-full justify-center bg-slate-50 dark:bg-slate-900">
+      <div className="w-full max-w-6xl">
+        {/* Navigation */}
+        <nav className="mx-6 mt-4 sm:mx-8 sm:mt-6">
           <Link
             href="/posts"
-            className="group relative inline-flex items-center overflow-hidden rounded-xl bg-white/90 px-4 py-2.5 text-sm font-medium text-gray-700 shadow-lg backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-blue-500/10 sm:rounded-2xl sm:px-6 sm:py-3 sm:text-base dark:bg-gray-800/90 dark:text-gray-300 dark:hover:shadow-blue-400/10"
+            className="group relative inline-flex items-center overflow-hidden rounded-xl bg-white/90 px-4 py-2.5 text-sm font-medium text-gray-700 shadow-md backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-blue-500/10 sm:rounded-2xl sm:px-6 sm:py-3 sm:text-base dark:bg-gray-800/90 dark:text-gray-300 dark:hover:shadow-blue-400/10"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-indigo-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100 dark:from-blue-900/20 dark:to-indigo-900/20"></div>
             <ArrowLeftIcon className="relative mr-2 h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1 sm:mr-3 sm:h-5 sm:w-5" />
             <span className="relative">Back to Posts</span>
           </Link>
-        </div>
-      </nav>
+        </nav>
 
-      {/* Post Header */}
-      <header className="px-4 pt-6 pb-8 sm:px-6 sm:pt-8 sm:pb-12 lg:px-8">
-        <div className="mx-auto max-w-6xl">
+        {/* Post Header */}
+        <header className="mx-4 my-6 sm:mx-6 sm:my-8 lg:mx-8">
           <div className="text-center">
             {/* Featured Badge */}
             {metadata.featured && (
@@ -78,7 +76,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
             </div>
 
             {/* Title */}
-            <h1 className="mb-4 bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 bg-clip-text px-4 text-2xl leading-tight font-bold tracking-tight text-transparent transition-all duration-300 sm:mb-6 sm:px-0 sm:text-4xl md:text-5xl lg:text-6xl dark:from-white dark:via-blue-100 dark:to-indigo-100">
+            <h1 className="mb-4 bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 bg-clip-text px-4 text-2xl leading-tight font-bold tracking-tight text-transparent transition-all duration-300 sm:mb-6 sm:px-0 sm:text-3xl md:text-4xl lg:text-5xl dark:from-white dark:via-blue-100 dark:to-indigo-100">
               {metadata.title}
             </h1>
 
@@ -106,19 +104,15 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               )}
             </div>
           </div>
-        </div>
-      </header>
+        </header>
 
-      {/* Post Content */}
-      <main className="px-4 pb-12 sm:px-6 sm:pb-16 lg:px-8">
-        <div className="mx-auto max-w-6xl">
+        {/* Post Content */}
+        <main className="mx-4 mb-8 sm:mx-6 sm:mb-10 lg:mx-8">
           <PostContent />
-        </div>
-      </main>
+        </main>
 
-      {/* Post Footer */}
-      <footer className="px-4 pb-12 sm:px-6 sm:pb-16 lg:px-8">
-        <div className="mx-auto max-w-6xl">
+        {/* Post Footer */}
+        <footer className="mx-4 mb-8 sm:mx-6 sm:mb-10 lg:mx-8">
           <div className="relative overflow-hidden rounded-xl bg-white/90 p-6 shadow-xl backdrop-blur-sm transition-all duration-300 hover:scale-101 hover:shadow-2xl sm:rounded-3xl sm:p-8 dark:bg-gray-800/90">
             <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-indigo-50/50 dark:from-blue-900/10 dark:to-indigo-900/10"></div>
 
@@ -154,8 +148,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
               </div>
             </div>
           </div>
-        </div>
-      </footer>
+        </footer>
+      </div>
     </div>
   );
 }

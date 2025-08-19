@@ -163,46 +163,54 @@ function ComparisonTable({ data }: { data: Array<{ feature: string; before: stri
 }
 
 const components = {
-  // Headings with modern styling and mobile adaptation
+  // Headings
   h1: ({ children, ...props }) => (
     <h1
-      className="mt-8 mb-6 bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 bg-clip-text text-2xl leading-tight font-bold tracking-tight text-transparent first:mt-0 sm:mt-12 sm:mb-8 sm:text-4xl dark:from-white dark:via-blue-100 dark:to-indigo-100"
+      className="mt-6 mb-4 bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 bg-clip-text text-2xl leading-tight font-extrabold tracking-tight text-transparent first:mt-0 sm:mt-8 sm:mb-5 sm:text-3xl lg:text-4xl dark:from-white dark:via-blue-100 dark:to-indigo-100"
       {...props}
     >
       {children}
     </h1>
   ),
   h2: ({ children, ...props }) => (
-    <h2
-      className="mt-8 mb-4 text-2xl leading-tight font-bold tracking-tight text-gray-900 sm:mt-12 sm:mb-6 sm:text-3xl dark:text-white"
-      {...props}
-    >
-      {children}
-    </h2>
+    <div className="mt-8 mb-4 sm:mt-10 sm:mb-5">
+      <h2
+        className="relative pl-2 text-xl leading-tight font-bold tracking-tight text-gray-900 before:absolute before:top-0 before:left-0 before:h-full before:w-1 before:rounded-full before:bg-gradient-to-b before:from-blue-500 before:to-indigo-500 before:content-[''] sm:pl-3 sm:text-2xl sm:before:w-1.5 lg:text-3xl dark:text-white"
+        {...props}
+      >
+        {children}
+      </h2>
+    </div>
   ),
   h3: ({ children, ...props }) => (
-    <h3
-      className="mt-8 mb-3 text-xl leading-tight font-bold text-gray-900 sm:mt-12 sm:mb-4 sm:text-2xl dark:text-white"
-      {...props}
-    >
-      {children}
-    </h3>
+    <div className="mt-6 mb-3 sm:mt-8 sm:mb-4">
+      <h3
+        className="relative pl-3 text-lg leading-tight font-semibold text-gray-900 before:absolute before:top-0 before:left-0 before:h-full before:w-1.5 before:rounded-full before:bg-blue-500/20 before:content-[''] sm:pl-4 sm:text-xl sm:before:w-2 lg:text-2xl dark:text-white dark:before:bg-blue-400/30"
+        {...props}
+      >
+        {children}
+      </h3>
+    </div>
   ),
   h4: ({ children, ...props }) => (
-    <h4
-      className="mt-6 mb-2 text-lg leading-tight font-bold text-gray-900 sm:mt-10 sm:mb-3 sm:text-xl dark:text-white"
-      {...props}
-    >
-      {children}
-    </h4>
+    <div className="mt-5 mb-2 sm:mt-6 sm:mb-3">
+      <h4
+        className="border-l-3 border-gray-300 pl-2 text-base leading-tight font-semibold text-gray-800 sm:text-lg lg:text-xl dark:border-gray-600 dark:text-gray-200"
+        {...props}
+      >
+        {children}
+      </h4>
+    </div>
   ),
   h5: ({ children, ...props }) => (
-    <h5
-      className="mt-6 mb-2 text-base leading-tight font-bold text-gray-900 sm:mt-8 sm:mb-3 sm:text-lg dark:text-white"
-      {...props}
-    >
-      {children}
-    </h5>
+    <div className="mt-4 mb-2 sm:mt-5 sm:mb-3">
+      <h5
+        className="inline-block w-auto border-b-3 border-gray-200 pb-1 text-sm leading-tight font-medium tracking-wider text-gray-700 uppercase sm:text-base lg:text-lg dark:border-gray-700 dark:text-gray-300"
+        {...props}
+      >
+        {children}
+      </h5>
+    </div>
   ),
   h6: ({ children, ...props }) => (
     <h6
@@ -213,14 +221,14 @@ const components = {
     </h6>
   ),
 
-  // Paragraphs with better spacing
+  // Paragraphs
   p: ({ children, ...props }) => (
     <p className="mb-4 text-base leading-relaxed text-gray-700 sm:mb-6 sm:text-lg dark:text-gray-300" {...props}>
       {children}
     </p>
   ),
 
-  // Enhanced Lists with proper mobile styling
+  // Enhanced Lists
   ul: ({ children, ...props }) => (
     <ul className="mb-6 ml-4 space-y-2 sm:mb-8 sm:ml-6 sm:space-y-3" {...props}>
       {children}
@@ -264,7 +272,7 @@ const components = {
 
   code: ({ children, ...props }) => <code {...props}>{children}</code>,
 
-  // Modern tables with better mobile support
+  // Modern tables
   table: ({ children, ...props }) => (
     <div className="my-8 overflow-hidden rounded-xl border border-gray-200/50 shadow-xl backdrop-blur-sm sm:my-10 sm:rounded-2xl dark:border-gray-700/50">
       <div className="overflow-x-auto">
@@ -301,22 +309,6 @@ const components = {
     <td className="px-3 py-3 text-xs text-gray-900 sm:px-6 sm:py-4 sm:text-sm dark:text-gray-100" {...props}>
       {children}
     </td>
-  ),
-
-  // Enhanced images with mobile support
-  img: ({ src, alt, ...props }) => (
-    <div className="my-8 flex justify-center sm:my-10">
-      <div className="overflow-hidden rounded-xl shadow-xl sm:rounded-2xl">
-        <Image
-          src={src as string}
-          alt={alt || ""}
-          width={800}
-          height={400}
-          className="h-auto w-full max-w-full object-cover"
-          {...props}
-        />
-      </div>
-    </div>
   ),
 
   // Modern horizontal rule
