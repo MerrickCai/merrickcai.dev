@@ -1,5 +1,5 @@
 import type { MDXComponents } from "mdx/types";
-import Image from "next/image";
+import Image, { ImageProps } from "next/image";
 import Link from "next/link";
 import {
   InformationCircleIcon,
@@ -8,6 +8,46 @@ import {
   XCircleIcon,
   LightBulbIcon,
 } from "@heroicons/react/24/outline";
+
+function MdxImage({ src = "", alt = "", ...props }: ImageProps) {
+  // Statically imported image
+  if (typeof src !== "string") {
+    return (
+      <div className="my-8 flex justify-center sm:my-10">
+        <div className="relative w-[95%] max-w-4xl overflow-hidden rounded-md shadow-xl transition-all duration-300 hover:scale-101 hover:shadow-2xl">
+          <Image
+            {...(props as ImageProps)}
+            src={src}
+            alt={alt}
+            sizes="95vw"
+            placeholder="blur"
+            className="h-auto w-full"
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // Remote image (absolute external URL)
+  if (src.startsWith("http")) {
+    return (
+      <div className="my-8 flex justify-center sm:my-10">
+        <div className="relative w-[95%] max-w-4xl overflow-hidden rounded-md shadow-xl transition-all duration-300 hover:scale-101 hover:shadow-2xl">
+          <Image {...(props as ImageProps)} src={src} alt={alt} fill sizes="95vw" className="object-contain" />
+        </div>
+      </div>
+    );
+  }
+
+  // Internal path URL string (inside public folder)
+  return (
+    <div className="my-8 flex justify-center sm:my-10">
+      <div className="relative w-[95%] max-w-4xl overflow-hidden rounded-md shadow-xl transition-all duration-300 hover:scale-101 hover:shadow-2xl">
+        <Image {...(props as ImageProps)} src={src} alt={alt} fill sizes="95vw" className="object-contain" />
+      </div>
+    </div>
+  );
+}
 
 function Callout({
   type = "info",
@@ -312,6 +352,7 @@ const components = {
   ),
 
   // Custom components
+  Image: MdxImage,
   Callout,
   Highlight,
   FeatureGrid,
