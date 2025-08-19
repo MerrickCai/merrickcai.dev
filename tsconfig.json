@@ -22,6 +22,11 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "mdx": {
+    // Enable strict type checking in MDX files.
+    "checkMdx": true,
+    "plugins": ["remark-math"]
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "**/*.mdx"],
   "exclude": ["node_modules"]
 }

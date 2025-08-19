@@ -322,3 +322,7 @@ const components = {
 export function useMDXComponents(): MDXComponents {
   return components;
 }
+
+declare global {
+  type MDXProvidedComponents = typeof components;
+}
