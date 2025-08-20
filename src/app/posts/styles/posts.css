@@ -5,6 +5,11 @@
 
 /* KaTeX Styles */
 @import "katex/dist/katex.min.css";
+@layer components {
+  span.katex-display {
+    @apply dark:text-white;
+  }
+}
 
 /* Code Styles */
 @layer components {
@@ -14,7 +19,7 @@
        shadow, transition, and dark-mode variants.
      ========================================================================== */
   figure[data-rehype-pretty-code-figure] {
-    @apply relative my-4 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-xl transition-shadow duration-300 hover:shadow-2xl sm:my-6 dark:border-gray-700 dark:bg-gray-900;
+    @apply relative my-4 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-md sm:my-6 dark:border-gray-700 dark:bg-gray-900;
 
     &:focus-within {
       @apply ring-2 ring-indigo-500/50 ring-offset-2 ring-offset-white dark:ring-offset-gray-900;
@@ -136,7 +141,7 @@
      Inline code (not inside <pre>) enhancements
      - Rounded pill, solid background, hover effects for emphasis
      ========================================================================== */
-  :not(pre[data-theme]) > code {
-    @apply relative rounded-lg bg-gray-100 px-1 py-0.5 font-mono text-sm font-semibold text-blue-600 shadow-sm transition-all duration-300 hover:bg-gray-200 hover:shadow-md sm:px-2.5 sm:py-1.5 dark:bg-gray-800 dark:text-blue-400 dark:hover:bg-gray-700;
+  span[data-rehype-pretty-code-figure] code[data-theme] {
+    @apply relative rounded-lg bg-gray-100 px-1 py-0.5 font-mono text-sm font-semibold text-blue-600 shadow-sm transition-all duration-300 hover:bg-gray-200 hover:shadow-md sm:px-[5px] sm:py-[3px] dark:bg-gray-800 dark:text-blue-400 dark:hover:bg-gray-700;
   }
 }

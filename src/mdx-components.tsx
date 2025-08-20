@@ -13,16 +13,18 @@ function MdxImage({ src = "", alt = "", ...props }: ImageProps) {
   // Statically imported image
   if (typeof src !== "string") {
     return (
-      <div className="my-8 flex justify-center sm:my-10">
-        <div className="relative w-[95%] max-w-4xl overflow-hidden rounded-md shadow-xl transition-all duration-300 hover:scale-101 hover:shadow-2xl">
-          <Image
-            {...(props as ImageProps)}
-            src={src}
-            alt={alt}
-            sizes="95vw"
-            placeholder="blur"
-            className="h-auto w-full"
-          />
+      <div className="my-4 flex justify-center sm:my-6">
+        <div className="relative w-[90%] max-w-3xl overflow-hidden rounded-md bg-gray-50 p-1.5 shadow-lg ring-1 ring-gray-200/50 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl dark:bg-gray-800 dark:ring-gray-700/50">
+          <div className="overflow-hidden rounded-md">
+            <Image
+              {...(props as ImageProps)}
+              src={src}
+              alt={alt}
+              sizes="90vw"
+              placeholder="blur"
+              className="h-auto w-full"
+            />
+          </div>
         </div>
       </div>
     );
@@ -31,9 +33,11 @@ function MdxImage({ src = "", alt = "", ...props }: ImageProps) {
   // Remote image (absolute external URL)
   if (src.startsWith("http")) {
     return (
-      <div className="my-8 flex justify-center sm:my-10">
-        <div className="relative w-[95%] max-w-4xl overflow-hidden rounded-md shadow-xl transition-all duration-300 hover:scale-101 hover:shadow-2xl">
-          <Image {...(props as ImageProps)} src={src} alt={alt} fill sizes="95vw" className="object-contain" />
+      <div className="my-4 flex justify-center sm:my-6">
+        <div className="relative w-[90%] max-w-3xl overflow-hidden rounded-md bg-gray-50 p-1.5 shadow-lg ring-1 ring-gray-200/50 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl dark:bg-gray-800 dark:ring-gray-700/50">
+          <div className="relative aspect-video overflow-hidden rounded-md">
+            <Image {...(props as ImageProps)} src={src} alt={alt} fill sizes="90vw" className="object-contain" />
+          </div>
         </div>
       </div>
     );
@@ -41,9 +45,11 @@ function MdxImage({ src = "", alt = "", ...props }: ImageProps) {
 
   // Internal path URL string (inside public folder)
   return (
-    <div className="my-8 flex justify-center sm:my-10">
-      <div className="relative w-[95%] max-w-4xl overflow-hidden rounded-md shadow-xl transition-all duration-300 hover:scale-101 hover:shadow-2xl">
-        <Image {...(props as ImageProps)} src={src} alt={alt} fill sizes="95vw" className="object-contain" />
+    <div className="my-4 flex justify-center sm:my-6">
+      <div className="relative w-[90%] max-w-3xl overflow-hidden rounded-md bg-gray-50 p-1.5 shadow-lg ring-1 ring-gray-200/50 transition-all duration-300 hover:scale-[1.01] hover:shadow-xl dark:bg-gray-800 dark:ring-gray-700/50">
+        <div className="relative aspect-video overflow-hidden rounded-md">
+          <Image {...(props as ImageProps)} src={src} alt={alt} fill sizes="90vw" className="object-contain" />
+        </div>
       </div>
     </div>
   );
@@ -58,41 +64,41 @@ function Callout({
 }) {
   const styles = {
     info: {
-      container: "bg-blue-100/90 border-blue-300/60 backdrop-blur-sm dark:bg-blue-800/30 dark:border-blue-600/60",
-      icon: <InformationCircleIcon className="h-5 w-5 text-blue-600 dark:text-blue-400" />,
+      container: "bg-blue-50/80 border-blue-200 dark:bg-blue-950/30 dark:border-blue-700/50",
+      icon: <InformationCircleIcon className="h-4 w-4 text-blue-600 dark:text-blue-400" />,
       text: "text-blue-900 dark:text-blue-100",
     },
     warning: {
-      container:
-        "bg-yellow-50/80 border-yellow-200/50 backdrop-blur-sm dark:bg-yellow-900/20 dark:border-yellow-700/50",
-      icon: <ExclamationTriangleIcon className="h-5 w-5 text-yellow-600 dark:text-yellow-400" />,
-      text: "text-yellow-900 dark:text-yellow-100",
+      container: "bg-amber-50/80 border-amber-200 dark:bg-amber-950/30 dark:border-amber-700/50",
+      icon: <ExclamationTriangleIcon className="h-4 w-4 text-amber-600 dark:text-amber-400" />,
+      text: "text-amber-900 dark:text-amber-100",
     },
     success: {
-      container: "bg-green-50/80 border-green-200/50 backdrop-blur-sm dark:bg-green-900/20 dark:border-green-700/50",
-      icon: <CheckCircleIcon className="h-5 w-5 text-green-600 dark:text-green-400" />,
-      text: "text-green-900 dark:text-green-100",
+      container: "bg-emerald-50/80 border-emerald-200 dark:bg-emerald-950/30 dark:border-emerald-700/50",
+      icon: <CheckCircleIcon className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />,
+      text: "text-emerald-900 dark:text-emerald-100",
     },
     error: {
-      container: "bg-red-50/80 border-red-200/50 backdrop-blur-sm dark:bg-red-900/20 dark:border-red-700/50",
-      icon: <XCircleIcon className="h-5 w-5 text-red-600 dark:text-red-400" />,
+      container: "bg-red-50/80 border-red-200 dark:bg-red-950/30 dark:border-red-700/50",
+      icon: <XCircleIcon className="h-4 w-4 text-red-600 dark:text-red-400" />,
       text: "text-red-900 dark:text-red-100",
     },
     tip: {
-      container:
-        "bg-purple-50/80 border-purple-200/50 backdrop-blur-sm dark:bg-purple-900/20 dark:border-purple-700/50",
-      icon: <LightBulbIcon className="h-5 w-5 text-purple-600 dark:text-purple-400" />,
-      text: "text-purple-900 dark:text-purple-100",
+      container: "bg-violet-50/80 border-violet-200 dark:bg-violet-950/30 dark:border-violet-700/50",
+      icon: <LightBulbIcon className="h-4 w-4 text-violet-600 dark:text-violet-400" />,
+      text: "text-violet-900 dark:text-violet-100",
     },
   };
 
   const style = styles[type];
 
   return (
-    <div className={`my-6 rounded-xl border p-4 shadow-lg sm:my-8 sm:rounded-2xl sm:p-6 ${style.container}`}>
-      <div className="flex items-start gap-2 sm:gap-4">
-        <div className="mt-0.5 flex-shrink-0">{style.icon}</div>
-        <div className={`${style.text} [&>*:first-child]:mt-0 [&>*:last-child]:mb-0`}>{children}</div>
+    <div
+      className={`my-4 rounded-lg border p-4 shadow-sm transition-all duration-200 hover:shadow-md sm:my-5 sm:p-5 ${style.container}`}
+    >
+      <div className="flex items-start gap-3">
+        <div className="mt-0.5 flex-shrink-0 transition-transform duration-200 hover:scale-110">{style.icon}</div>
+        <div className={`text-sm ${style.text} [&>*:first-child]:mt-0 [&>*:last-child]:mb-0`}>{children}</div>
       </div>
     </div>
   );
@@ -100,64 +106,34 @@ function Callout({
 
 function Highlight({ children }: { children: React.ReactNode }) {
   return (
-    <mark className="rounded-md bg-gradient-to-r from-yellow-200/80 to-yellow-300/80 px-1.5 py-0.5 text-gray-900 shadow-sm sm:px-2 sm:py-1 dark:from-yellow-600/30 dark:to-yellow-500/30 dark:text-yellow-100">
+    <mark className="rounded bg-yellow-200 px-1.5 py-0.5 text-sm text-gray-900 dark:bg-yellow-500/30 dark:text-yellow-100">
       {children}
     </mark>
   );
 }
 
 function FeatureGrid({ children }: { children: React.ReactNode }) {
-  return <div className="my-8 grid gap-4 sm:my-12 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">{children}</div>;
+  return <div className="my-6 grid gap-4 sm:my-8 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">{children}</div>;
 }
 
 function FeatureCard({ title, children, icon }: { title: string; children: React.ReactNode; icon?: string }) {
   return (
-    <div className="group relative overflow-hidden rounded-xl border border-gray-200/50 bg-white/80 p-4 shadow-lg backdrop-blur-sm transition-all duration-200 hover:border-blue-200/50 hover:shadow-xl sm:rounded-2xl sm:p-6 dark:border-gray-700/50 dark:bg-gray-800/80 dark:hover:border-blue-600/50">
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-indigo-500/5 opacity-0 transition-opacity group-hover:opacity-100"></div>
+    <div className="group relative overflow-hidden rounded-lg border border-gray-200 bg-white p-4 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md sm:p-5 dark:border-gray-700 dark:bg-gray-800">
       <div className="relative">
-        {icon && <div className="mb-3 text-2xl sm:mb-4 sm:text-3xl">{icon}</div>}
-        <h3 className="mb-2 text-base font-bold text-gray-900 sm:mb-3 sm:text-lg dark:text-white">{title}</h3>
+        {icon && <div className="mb-3 text-xl sm:text-2xl">{icon}</div>}
+        <h3 className="mb-2 text-base font-semibold text-gray-900 transition-colors duration-200 group-hover:text-indigo-600 sm:text-lg dark:text-white dark:group-hover:text-indigo-400">
+          {title}
+        </h3>
         <div className="text-xs leading-relaxed text-gray-600 sm:text-sm dark:text-gray-300">{children}</div>
       </div>
     </div>
   );
 }
 
-function ComparisonTable({ data }: { data: Array<{ feature: string; before: string; after: string }> }) {
+function DisplayBox({ children }: { children: React.ReactNode }) {
   return (
-    <div className="my-8 overflow-hidden rounded-xl border border-gray-200/50 shadow-xl backdrop-blur-sm sm:my-12 sm:rounded-2xl dark:border-gray-700/50">
-      <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200/50 dark:divide-gray-700/50">
-          <thead className="bg-gray-50/80 dark:bg-gray-800/80">
-            <tr>
-              <th className="px-3 py-3 text-left text-xs font-bold tracking-wider text-gray-600 uppercase sm:px-6 sm:py-4 dark:text-gray-300">
-                Feature
-              </th>
-              <th className="px-3 py-3 text-left text-xs font-bold tracking-wider text-gray-600 uppercase sm:px-6 sm:py-4 dark:text-gray-300">
-                Before
-              </th>
-              <th className="px-3 py-3 text-left text-xs font-bold tracking-wider text-gray-600 uppercase sm:px-6 sm:py-4 dark:text-gray-300">
-                After
-              </th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-200/50 bg-white/80 dark:divide-gray-700/50 dark:bg-gray-900/80">
-            {data.map((row, index) => (
-              <tr key={index} className="transition-colors hover:bg-gray-50/50 dark:hover:bg-gray-800/50">
-                <td className="px-3 py-3 text-xs font-semibold text-gray-900 sm:px-6 sm:py-4 sm:text-sm dark:text-white">
-                  {row.feature}
-                </td>
-                <td className="px-3 py-3 text-xs text-red-600 sm:px-6 sm:py-4 sm:text-sm dark:text-red-400">
-                  {row.before}
-                </td>
-                <td className="px-3 py-3 text-xs text-green-600 sm:px-6 sm:py-4 sm:text-sm dark:text-green-400">
-                  {row.after}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+    <div className="my-4 rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 p-6 dark:border-gray-600 dark:bg-gray-800/50">
+      {children}
     </div>
   );
 }
@@ -165,39 +141,32 @@ function ComparisonTable({ data }: { data: Array<{ feature: string; before: stri
 const components = {
   // Headings
   h1: ({ children, ...props }) => (
-    <h1
-      className="mt-6 mb-4 bg-gradient-to-r from-gray-900 via-blue-900 to-indigo-900 bg-clip-text text-2xl leading-tight font-extrabold tracking-tight text-transparent first:mt-0 sm:mt-8 sm:mb-5 sm:text-3xl lg:text-4xl dark:from-white dark:via-blue-100 dark:to-indigo-100"
-      {...props}
-    >
-      {children}
-    </h1>
+    <div className="mt-6 mb-4 first:mt-0 sm:mb-5">
+      <h1
+        className="relative pl-4 text-2xl font-bold text-gray-900 before:absolute before:top-0 before:left-0 before:h-full before:w-1 before:rounded-full before:bg-indigo-500 sm:text-3xl dark:text-white"
+        {...props}
+      >
+        {children}
+      </h1>
+    </div>
   ),
   h2: ({ children, ...props }) => (
     <div className="mt-8 mb-4 sm:mt-10 sm:mb-5">
-      <h2
-        className="relative pl-2 text-xl leading-tight font-bold tracking-tight text-gray-900 before:absolute before:top-0 before:left-0 before:h-full before:w-1 before:rounded-full before:bg-gradient-to-b before:from-blue-500 before:to-indigo-500 before:content-[''] sm:pl-3 sm:text-2xl sm:before:w-1.5 lg:text-3xl dark:text-white"
-        {...props}
-      >
+      <h2 className="text-xl font-semibold text-indigo-600 sm:text-2xl dark:text-indigo-400" {...props}>
         {children}
       </h2>
     </div>
   ),
   h3: ({ children, ...props }) => (
     <div className="mt-6 mb-3 sm:mt-8 sm:mb-4">
-      <h3
-        className="relative pl-3 text-lg leading-tight font-semibold text-gray-900 before:absolute before:top-0 before:left-0 before:h-full before:w-1.5 before:rounded-full before:bg-blue-500/20 before:content-[''] sm:pl-4 sm:text-xl sm:before:w-2 lg:text-2xl dark:text-white dark:before:bg-blue-400/30"
-        {...props}
-      >
+      <h3 className="text-lg font-medium text-emerald-600 sm:text-xl dark:text-emerald-400" {...props}>
         {children}
       </h3>
     </div>
   ),
   h4: ({ children, ...props }) => (
     <div className="mt-5 mb-2 sm:mt-6 sm:mb-3">
-      <h4
-        className="border-l-3 border-gray-300 pl-2 text-base leading-tight font-semibold text-gray-800 sm:text-lg lg:text-xl dark:border-gray-600 dark:text-gray-200"
-        {...props}
-      >
+      <h4 className="text-base font-medium text-purple-600 sm:text-lg dark:text-purple-400" {...props}>
         {children}
       </h4>
     </div>
@@ -205,7 +174,7 @@ const components = {
   h5: ({ children, ...props }) => (
     <div className="mt-4 mb-2 sm:mt-5 sm:mb-3">
       <h5
-        className="inline-block w-auto border-b-3 border-gray-200 pb-1 text-sm leading-tight font-medium tracking-wider text-gray-700 uppercase sm:text-base lg:text-lg dark:border-gray-700 dark:text-gray-300"
+        className="text-sm font-medium tracking-wide text-amber-600 uppercase sm:text-base dark:text-amber-400"
         {...props}
       >
         {children}
@@ -213,54 +182,53 @@ const components = {
     </div>
   ),
   h6: ({ children, ...props }) => (
-    <h6
-      className="mt-4 mb-2 text-sm leading-tight font-bold text-gray-900 sm:mt-6 sm:text-base dark:text-white"
-      {...props}
-    >
+    <h6 className="mt-4 mb-2 text-sm font-semibold text-rose-600 sm:text-base dark:text-rose-400" {...props}>
       {children}
     </h6>
   ),
 
   // Paragraphs
   p: ({ children, ...props }) => (
-    <p className="mb-4 text-base leading-relaxed text-gray-700 sm:mb-6 sm:text-lg dark:text-gray-300" {...props}>
+    <p className="mb-4 text-sm leading-relaxed text-gray-700 sm:text-base dark:text-gray-300" {...props}>
       {children}
     </p>
   ),
 
-  // Enhanced Lists
+  // Lists
   ul: ({ children, ...props }) => (
-    <ul className="mb-6 ml-4 space-y-2 sm:mb-8 sm:ml-6 sm:space-y-3" {...props}>
+    <ul className="mb-4 ml-4 space-y-1 sm:mb-6 sm:ml-6 sm:space-y-2 [&_ul]:mt-2 [&_ul]:mb-0" {...props}>
       {children}
     </ul>
   ),
   ol: ({ children, ...props }) => (
-    <ol className="mb-6 ml-4 space-y-2 sm:mb-8 sm:ml-6 sm:space-y-3" {...props}>
+    <ol className="mb-4 ml-4 space-y-1 sm:mb-6 sm:ml-6 sm:space-y-2 [&_ol]:mt-2 [&_ol]:mb-0" {...props}>
       {children}
     </ol>
   ),
   li: ({ children, ...props }) => (
-    <li className="flex items-start gap-2 leading-relaxed text-gray-700 dark:text-gray-300" {...props}>
-      <div className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-blue-500 sm:mt-2 sm:h-2 sm:w-2" />
+    <li className="flex items-start gap-2 text-sm leading-relaxed text-gray-700 dark:text-gray-300" {...props}>
+      <div className="mt-1.5 h-1 w-1 flex-shrink-0 rounded-full bg-indigo-500 sm:mt-2 sm:h-1.5 sm:w-1.5" />
       <div className="flex-1">{children}</div>
     </li>
   ),
 
-  // Enhanced links
+  // Links
   a: ({ href, children, ...props }) => (
     <Link
       href={href as string}
-      className="font-semibold text-blue-600 underline decoration-blue-600/30 decoration-2 underline-offset-2 transition-all duration-200 hover:text-blue-800 hover:decoration-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
+      className="font-medium text-indigo-600 underline decoration-indigo-600/30 underline-offset-2 transition-colors hover:text-indigo-800 hover:decoration-indigo-600/60 dark:text-indigo-400 dark:hover:text-indigo-300"
       {...props}
+      target={href.startsWith("http") ? "_blank" : undefined}
+      rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
     >
       {children}
     </Link>
   ),
 
-  // Modern blockquotes
+  // Blockquotes
   blockquote: ({ children, ...props }) => (
     <blockquote
-      className="my-6 rounded-r-xl border-l-4 border-blue-500 bg-gradient-to-r from-blue-50/80 to-transparent p-4 italic shadow-lg backdrop-blur-sm sm:my-8 sm:rounded-r-2xl sm:p-6 dark:border-blue-400 dark:from-blue-900/20"
+      className="my-4 rounded-r-lg border-l-3 border-indigo-500 bg-indigo-50/50 p-4 text-sm italic shadow-sm sm:my-6 sm:p-5 dark:border-indigo-400 dark:bg-indigo-950/20"
       {...props}
     >
       <div className="text-gray-700 dark:text-gray-300 [&>*:first-child]:mt-0 [&>*:last-child]:mb-0">{children}</div>
@@ -269,64 +237,63 @@ const components = {
 
   // The styles is handled by rehype pretty code and Custom CSS file
   pre: ({ children, ...props }) => <pre {...props}>{children}</pre>,
-
   code: ({ children, ...props }) => <code {...props}>{children}</code>,
 
-  // Modern tables
+  // Tables
   table: ({ children, ...props }) => (
-    <div className="my-8 overflow-hidden rounded-xl border border-gray-200/50 shadow-xl backdrop-blur-sm sm:my-10 sm:rounded-2xl dark:border-gray-700/50">
+    <div className="my-6 overflow-hidden rounded-lg border border-gray-200 shadow-sm dark:border-gray-700">
       <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200/50 dark:divide-gray-700/50" {...props}>
+        <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700" {...props}>
           {children}
         </table>
       </div>
     </div>
   ),
   thead: ({ children, ...props }) => (
-    <thead className="bg-gray-50/80 dark:bg-gray-800/80" {...props}>
+    <thead className="bg-gray-50 dark:bg-gray-700" {...props}>
       {children}
     </thead>
   ),
   tbody: ({ children, ...props }) => (
-    <tbody className="divide-y divide-gray-200/50 bg-white/80 dark:divide-gray-700/50 dark:bg-gray-900/80" {...props}>
+    <tbody className="divide-y divide-gray-200 bg-white dark:divide-gray-700 dark:bg-gray-800" {...props}>
       {children}
     </tbody>
   ),
   tr: ({ children, ...props }) => (
-    <tr className="transition-colors hover:bg-gray-50/50 dark:hover:bg-gray-800/50" {...props}>
+    <tr className="divide-x divide-gray-200 hover:bg-gray-50 dark:divide-gray-600 dark:hover:bg-gray-700" {...props}>
       {children}
     </tr>
   ),
   th: ({ children, ...props }) => (
     <th
-      className="px-3 py-3 text-left text-xs font-bold tracking-wider text-gray-600 uppercase sm:px-6 sm:py-4 dark:text-gray-300"
+      className="px-4 py-3 text-left text-xs font-medium tracking-wider text-gray-500 uppercase dark:text-gray-300"
       {...props}
     >
       {children}
     </th>
   ),
   td: ({ children, ...props }) => (
-    <td className="px-3 py-3 text-xs text-gray-900 sm:px-6 sm:py-4 sm:text-sm dark:text-gray-100" {...props}>
+    <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-100" {...props}>
       {children}
     </td>
   ),
 
-  // Modern horizontal rule
+  // Horizontal rule
   hr: () => (
-    <div className="my-12 flex items-center justify-center sm:my-16">
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-gray-600"></div>
-      <div className="mx-3 flex space-x-1 sm:mx-4">
-        <div className="h-1.5 w-1.5 rounded-full bg-blue-500 sm:h-2 sm:w-2"></div>
-        <div className="h-1.5 w-1.5 rounded-full bg-indigo-500 sm:h-2 sm:w-2"></div>
-        <div className="h-1.5 w-1.5 rounded-full bg-purple-500 sm:h-2 sm:w-2"></div>
+    <div className="my-8 flex items-center justify-center">
+      <div className="h-px w-full bg-gray-300 dark:bg-gray-600"></div>
+      <div className="mx-4 flex space-x-1">
+        <div className="h-1 w-1 rounded-full bg-indigo-500"></div>
+        <div className="h-1 w-1 rounded-full bg-purple-500"></div>
+        <div className="h-1 w-1 rounded-full bg-pink-500"></div>
       </div>
-      <div className="h-px w-full bg-gradient-to-r from-transparent via-gray-300 to-transparent dark:via-gray-600"></div>
+      <div className="h-px w-full bg-gray-300 dark:bg-gray-600"></div>
     </div>
   ),
 
-  // Enhanced text formatting
+  // Text formatting
   strong: ({ children, ...props }) => (
-    <strong className="font-bold text-gray-900 dark:text-white" {...props}>
+    <strong className="font-semibold text-gray-900 dark:text-white" {...props}>
       {children}
     </strong>
   ),
@@ -349,7 +316,7 @@ const components = {
   Highlight,
   FeatureGrid,
   FeatureCard,
-  ComparisonTable,
+  DisplayBox,
 } satisfies MDXComponents;
 
 export function useMDXComponents(): MDXComponents {
