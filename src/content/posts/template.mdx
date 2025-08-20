@@ -1,0 +1,207 @@
+{/** @type {import("@/app/posts/types/posts.types").PostMetadata} */}
+export const metadata = {
+  slug: "template",
+  title: "MDX Template: Complete Guide",
+  description: "A comprehensive template showcasing all available MDX components, styling options, and features in this theme. Use this as a reference for creating beautiful, interactive blog posts.",
+  publishedAt: "2025-08-19",
+  modifiedAt: "2025-08-19",
+  readTime: "6 min read",
+  tags: ["Template", "MDX", "Guide", "Components", "Documentation"],
+  featured: true,
+};
+
+import templateImage from '../images/template/template.png';
+
+# MDX Template Guide
+
+Welcome to the complete MDX template guide! This document showcases every available component and styling option in the theme.
+
+---
+
+## Typography Reference
+
+<Callout type="info">
+**Heading Examples**: The following section shows all available heading levels for reference. These are not part of the document structure.
+</Callout>
+
+<DisplayBox>
+
+# Heading 1 Example
+## Heading 2 Example  
+### Heading 3 Example
+#### Heading 4 Example
+##### Heading 5 Example
+###### Heading 6 Example
+
+</DisplayBox>
+
+---
+
+## Text Formatting
+
+This is **bold text** and this is *italic text*. You can also use ~~strikethrough text~~.
+
+Here's a paragraph with <Highlight>highlighted text</Highlight> to emphasize important content.
+
+---
+
+## Lists
+
+### Unordered Lists
+- First item with some content
+- Second item with **bold text**
+- Third item with *italic text*
+  - Nested item one
+  - Nested item two
+
+### Ordered Lists
+1. First numbered item
+2. Second numbered item with `inline code`
+3. Third numbered item
+   1. Nested numbered item
+   2. Another nested item
+
+---
+
+## Blockquotes
+
+> This is a beautiful blockquote that stands out from the regular text. It can contain **bold text**, *italic text*, and even `inline code`.
+> 
+> Multiple paragraphs are supported within blockquotes for longer quotes or excerpts.
+
+---
+
+## Code Examples
+
+### Inline Code
+
+Use `inline code` for variable names, function names, or short code snippets within sentences like `useState`, `componentDidMount`, or `console.log()`.
+
+### Code Blocks
+
+Here's a TypeScript example with advanced features (line number, title, caption, and highlighting):
+
+```typescript {1,3-5} title="TypeScript Example" caption="This example shows a simple component structure." showLineNumbers /border-dashed/
+function DisplayBox({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="my-4 rounded-lg border-2 border-dashed border-gray-300 bg-gray-50 p-6 dark:border-gray-600 dark:bg-gray-800/50">
+      {children}
+    </div>
+  );
+}
+```
+
+---
+
+## Links
+
+### Internal Links
+- [About Page](/about)
+- [Contact Page](/contact)
+
+### External Links
+- [Next.js Documentation](https://nextjs.org/docs)
+- [MDX Documentation](https://mdxjs.com/)
+
+---
+
+## Feature Grid and Cards
+
+<FeatureGrid>
+  <FeatureCard title="Component System" icon="🧩">
+    Modular and reusable components that make content creation efficient and consistent across all posts.
+  </FeatureCard>
+  
+  <FeatureCard title="Responsive Design" icon="📱">
+    All components are fully responsive and look great on desktop, tablet, and mobile devices.
+  </FeatureCard>
+  
+  <FeatureCard title="Dark Mode Support" icon="🌙">
+    Complete dark mode integration with smooth transitions and proper contrast ratios.
+  </FeatureCard>
+</FeatureGrid>
+
+---
+
+## Callout Components
+
+<Callout type="info">
+**Information Callout**: Use this for general information, tips, or neutral notices. Perfect for providing additional context without being alarming.
+</Callout>
+
+<Callout type="tip">
+**Tip Callout**: Great for sharing helpful advice, best practices, or pro tips that enhance the reader's understanding.
+</Callout>
+
+<Callout type="success">
+**Success Callout**: Use this to highlight positive outcomes, completed tasks, or successful implementations.
+</Callout>
+
+<Callout type="warning">
+**Warning Callout**: Perfect for cautionary notes, important considerations, or things to watch out for.
+</Callout>
+
+<Callout type="error">
+**Error Callout**: Use for critical issues, errors, or things that should definitely be avoided.
+</Callout>
+
+---
+
+## Tables
+
+| Feature | Description | Status |
+|---------|-------------|--------|
+| Dark Mode | Automatic theme switching | ✅ Complete |
+| Responsive | Mobile-friendly design | ✅ Complete |
+| TypeScript | Full type safety | ✅ Complete |
+| SEO | Search engine optimization | ✅ Complete |
+| Performance | Fast loading times | 🚧 In Progress |
+
+---
+
+## Mathematical Expressions
+
+### Inline Math
+
+Here's an inline equation: $E = mc^2$ demonstrating mass-energy equivalence.
+
+Here are some common math expressions: $x^2$, $\sqrt{16}$, $\frac{a}{b}$, $\sum_{i=1}^{n}$
+
+### Block Math
+
+Here's a complex mathematical expression:
+
+$$
+\frac{\partial u}{\partial t} = \alpha \left( \frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} \right)
+$$
+
+---
+
+## Images
+
+### Imported Images
+
+Here's an example using a statically imported image with automatic optimization:
+
+<Image src={templateImage} alt="Template showcase image demonstrating the theme's visual design" />
+
+### External Images
+
+You can also use external images by providing a URL:
+
+<Image 
+  src="https://w.wallhaven.cc/full/1p/wallhaven-1p6d79.jpg"
+  alt="Some random picture"
+/>
+
+### Images from Public Folder
+
+Images stored in the public folder can be referenced directly:
+
+<Image 
+  src="/screenshots/desktop.png"
+  alt="Desktop screenshot of the application"
+/>
+
+---
+

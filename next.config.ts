@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
       hmrRefreshes: true,
     },
   },
+  images: {
+    remotePatterns: [new URL("https://w.wallhaven.cc/**")],
+  },
   // Include markdown and MDX files
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
 };
