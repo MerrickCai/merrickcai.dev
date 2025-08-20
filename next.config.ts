@@ -16,7 +16,7 @@ const withMDX = createMDX({
   extension: /\.(md|mdx)$/,
   options: {
     // @ts-expect-error wrong types
-    remarkPlugins: [["remark-math"]],
+    remarkPlugins: [["remark-math"], ["remark-gfm"]],
     rehypePlugins: [
       // @ts-expect-error wrong types
       ["rehype-katex"],
