@@ -75,7 +75,8 @@ export async function POST() {
 
 async function getClientIdentifier(): Promise<string> {
   const headersList = await headers();
+  const cfConnectingIp = headersList.get("cf-connecting-ip");
   const forwardedFor = headersList.get("x-forwarded-for");
   const realIp = headersList.get("x-real-ip");
-  return forwardedFor?.split(",")[0].trim() || realIp || forwardedFor || "anonymous";
+  return cfConnectingIp || forwardedFor?.split(",")[0].trim() || realIp || forwardedFor || "anonymous";
 }
