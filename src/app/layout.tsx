@@ -5,6 +5,7 @@ import "./globals.css";
 
 import ThemeScript from "@/components/ThemeScript";
 import { Toaster } from "sonner";
+import VisitorTracker from "@/components/VisitorTracker";
 
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -42,6 +43,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       >
         {/* Inline script to apply the .dark class before paint to prevent FOUC */}
         <ThemeScript />
+
+        {/* Visitor tracking - doesn't render anything but increments count */}
+        <VisitorTracker />
 
         {/* Header, Main, and Footer */}
         <div className="flex min-h-screen flex-col bg-white dark:bg-gray-900">

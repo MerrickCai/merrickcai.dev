@@ -3,6 +3,7 @@ import Link from "next/link";
 import RevealOnScroll from "@/components/layout/RevealOnScroll";
 import TypewriterText from "@/components/ui/TypewriterText";
 import FloatingParticles from "@/components/ui/FloatingParticles";
+import VisitorCounter from "@/components/ui/VisitorCounter";
 
 import {
   ArrowRightIcon,
@@ -15,6 +16,7 @@ import {
   StarIcon,
   SparklesIcon,
   CubeIcon,
+  CalendarIcon,
 } from "@heroicons/react/24/outline";
 
 export const metadata: Metadata = {
@@ -25,6 +27,10 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  // Calculate days since launch
+  const launchDate = new Date("2025-03-09");
+  const daysSinceLaunch = Math.floor((new Date().getTime() - launchDate.getTime()) / (1000 * 60 * 60 * 24));
+
   return (
     <div className="relative min-h-screen w-full bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100 dark:from-gray-900 dark:via-blue-950 dark:to-indigo-950">
       {/* Floating Particles Background */}
@@ -314,6 +320,67 @@ export default function Home() {
                     Stay tuned
                     <SparklesIcon className="ml-1 h-3 w-3 sm:h-4 sm:w-4" />
                   </span>
+                </div>
+              </div>
+            </RevealOnScroll>
+          </div>
+        </div>
+      </section>
+
+      {/* Statistics Section */}
+      <section className="relative px-4 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <RevealOnScroll delay={0.2}>
+            <div className="mb-12 text-center sm:mb-16">
+              <h2 className="mb-3 text-3xl font-bold text-gray-900 sm:mb-4 sm:text-4xl dark:text-white">
+                Website Statistics
+              </h2>
+              <p className="mx-auto max-w-2xl text-base text-gray-600 sm:text-lg dark:text-gray-300">
+                Real-time insights into visitor engagement and website performance
+              </p>
+            </div>
+          </RevealOnScroll>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <RevealOnScroll delay={0.2}>
+              {/* Visitor Counter Card */}
+              <VisitorCounter />
+            </RevealOnScroll>
+
+            <RevealOnScroll delay={0.4}>
+              {/* Website Age Card */}
+              <div className="group relative overflow-hidden rounded-2xl bg-white/80 p-6 shadow-xl backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-2xl dark:bg-gray-800/80">
+                <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-emerald-500/10 opacity-0 transition-opacity group-hover:opacity-100"></div>
+                <div className="relative">
+                  <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-green-200 dark:bg-green-900/30">
+                    <CalendarIcon className="h-6 w-6 text-green-600 dark:text-green-400" />
+                  </div>
+                  <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Website Age</h3>
+                  <div className="flex items-baseline space-x-2">
+                    <span className="text-3xl font-bold text-green-600 tabular-nums dark:text-green-400">
+                      {daysSinceLaunch}
+                    </span>
+                    <span className="text-sm font-medium text-gray-500 dark:text-gray-400">days online</span>
+                  </div>
+                  <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">Continuously evolving and improving</p>
+                </div>
+              </div>
+            </RevealOnScroll>
+
+            <RevealOnScroll delay={0.6}>
+              {/* Projects Count Card */}
+              <div className="group relative overflow-hidden rounded-2xl bg-white/80 p-6 shadow-xl backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-2xl dark:bg-gray-800/80">
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 opacity-0 transition-opacity group-hover:opacity-100"></div>
+                <div className="relative">
+                  <div className="mb-3 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-purple-200 dark:bg-purple-900/30">
+                    <CodeBracketIcon className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+                  </div>
+                  <h3 className="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Projects Built</h3>
+                  <div className="flex items-baseline space-x-2">
+                    <span className="text-3xl font-bold text-purple-600 tabular-nums dark:text-purple-400">4</span>
+                    <span className="text-sm font-medium text-gray-500 dark:text-gray-400">completed</span>
+                  </div>
+                  <p className="mt-2 text-sm text-gray-600 dark:text-gray-300">From concept to production</p>
                 </div>
               </div>
             </RevealOnScroll>
