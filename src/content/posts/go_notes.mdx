@@ -1,0 +1,474 @@
+{/** @type {import("@/app/posts/types/posts.types").PostMetadata} */}
+export const metadata = {
+    slug: "go_notes",
+    title: "Go Notes",
+    description: "Notes on Go programming language basics and syntax",
+    publishedAt: "2025-10-03",
+    modifiedAt: "2025-10-03",
+    readTime: "15 min read",
+    tags: ["Go", "Programming", "Guide"],
+    featured: true,
+};
+
+# Go Programming Language Notes
+
+Go is a modern programming language developed by Google. It's simple, fast, and designed for building scalable applications.
+
+---
+
+## Basic Program Structure
+
+```go title="Hello World" showLineNumbers
+package main
+
+import "fmt"
+
+func main() {
+    fmt.Println("Hello, World!")
+}
+```
+
+<Callout type="info">
+Every Go program must belong to a package. The `main` package is required for executable programs.
+</Callout>
+
+---
+
+## Variable Declarations
+
+### Basic Declarations
+
+```go showLineNumbers
+// Method 1: Full declaration
+var name string = "John"
+var age int = 25
+
+// Method 2: Type inference
+var message = "Hello Go"
+var count = 100
+
+// Method 3: Short declaration (inside functions only)
+city := "New York"
+temperature := 25.5
+
+// Method 4: Multiple variables
+var a, b, c int = 1, 2, 3
+var x, y = "hello", 42
+```
+
+### Constants
+
+```go showLineNumbers
+const PI = 3.14159
+const (
+    StatusOK = 200
+    StatusNotFound = 404
+    StatusError = 500
+)
+```
+
+---
+
+## Basic Data Types
+
+| Type | Description | Example |
+|------|-------------|---------|
+| `bool` | Boolean | `true`, `false` |
+| `string` | String | `"Hello"` |
+| `int` | Integer | `42` |
+| `float64` | Float | `3.14` |
+| `byte` | Byte | `'A'` |
+
+```go title="Data Types Example" showLineNumbers
+var isActive bool = true
+var message string = "Hello Go"
+var count int = 100
+var price float64 = 99.99
+```
+
+---
+
+## Control Structures
+
+### if Statement
+
+```go showLineNumbers
+age := 18
+
+if age >= 18 {
+    fmt.Println("Adult")
+} else if age >= 13 {
+    fmt.Println("Teenager")
+} else {
+    fmt.Println("Child")
+}
+
+// if with initialization
+if score := 85; score >= 90 {
+    fmt.Println("Excellent")
+} else if score >= 60 {
+    fmt.Println("Pass")
+} else {
+    fmt.Println("Fail")
+}
+```
+
+### for Loop
+
+```go showLineNumbers
+// Standard loop
+for i := 0; i < 5; i++ {
+    fmt.Println(i)
+}
+
+// While-style loop
+count := 0
+for count < 3 {
+    fmt.Println(count)
+    count++
+}
+
+// Infinite loop
+for {
+    // Infinite loop, use break to exit
+    break
+}
+
+// Range over arrays/slices
+numbers := []int{1, 2, 3, 4, 5}
+for index, value := range numbers {
+    fmt.Printf("Index: %d, Value: %d\n", index, value)
+}
+```
+
+### switch Statement
+
+```go showLineNumbers
+day := "Monday"
+
+switch day {
+case "Monday":
+    fmt.Println("Start of work week")
+case "Friday":
+    fmt.Println("TGIF!")
+default:
+    fmt.Println("Regular day")
+}
+
+// Switch without expression
+score := 85
+switch {
+case score >= 90:
+    fmt.Println("Grade A")
+case score >= 80:
+    fmt.Println("Grade B")
+default:
+    fmt.Println("Grade C")
+}
+```
+
+---
+
+## Functions
+
+### Basic Functions
+
+```go title="Function Definition" showLineNumbers
+// Basic function
+func greet(name string) {
+    fmt.Printf("Hello, %s!\n", name)
+}
+
+// Function with return value
+func add(a, b int) int {
+    return a + b
+}
+
+// Multiple return values
+func divide(a, b float64) (float64, error) {
+    if b == 0 {
+        return 0, fmt.Errorf("cannot divide by zero")
+    }
+    return a / b, nil
+}
+
+// Named return values
+func calculate(a, b int) (sum, product int) {
+    sum = a + b
+    product = a * b
+    return // automatically returns sum and product
+}
+```
+
+<Callout type="tip">
+Go supports multiple return values, commonly used for returning results and error information.
+</Callout>
+
+---
+
+## Arrays and Slices
+
+### Arrays
+
+```go showLineNumbers
+// Declare and initialize array
+var numbers [5]int = [5]int{1, 2, 3, 4, 5}
+
+// Simplified syntax
+numbers := [5]int{1, 2, 3, 4, 5}
+
+// Let compiler count length
+numbers := [...]int{1, 2, 3, 4, 5}
+```
+
+### Slices (More Common)
+
+```go showLineNumbers
+// Declare slice
+var numbers []int
+
+// Create slice with make
+numbers = make([]int, 5) // slice with length 5
+
+// Direct initialization
+numbers := []int{1, 2, 3, 4, 5}
+
+// Append elements
+numbers = append(numbers, 6, 7, 8)
+
+// Slice operations
+slice := numbers[1:4] // get elements from index 1 to 3
+```
+
+---
+
+## Maps
+
+```go title="Map Operations" showLineNumbers
+// Create map
+ages := make(map[string]int)
+
+// Add data
+ages["John"] = 25
+ages["Jane"] = 30
+
+// Direct initialization
+ages := map[string]int{
+    "John": 25,
+    "Jane": 30,
+}
+
+// Check if key exists
+age, exists := ages["Bob"]
+if exists {
+    fmt.Printf("Bob's age is %d\n", age)
+} else {
+    fmt.Println("Bob not found")
+}
+
+// Delete key
+delete(ages, "John")
+```
+
+---
+
+## Structs
+
+```go title="Struct Definition and Usage" showLineNumbers
+// Define struct
+type Person struct {
+    Name string
+    Age  int
+    City string
+}
+
+// Create struct instance
+person1 := Person{
+    Name: "John",
+    Age:  25,
+    City: "New York",
+}
+
+// Simplified creation
+person2 := Person{"Jane", 30, "Boston"}
+
+// Struct methods
+func (p Person) Introduce() {
+    fmt.Printf("I'm %s, %d years old, from %s\n", p.Name, p.Age, p.City)
+}
+
+// Pointer receiver method (can modify struct)
+func (p *Person) Birthday() {
+    p.Age++
+}
+```
+
+---
+
+## Interfaces
+
+```go title="Interface Definition" showLineNumbers
+// Define interface
+type Animal interface {
+    Speak() string
+}
+
+// Implement interface
+type Dog struct {
+    Name string
+}
+
+func (d Dog) Speak() string {
+    return "Woof!"
+}
+
+type Cat struct {
+    Name string
+}
+
+func (c Cat) Speak() string {
+    return "Meow!"
+}
+
+// Use interface
+func makeSound(animal Animal) {
+    fmt.Printf("Animal says: %s\n", animal.Speak())
+}
+```
+
+<Callout type="success">
+Go interfaces are implicitly implemented. If a type implements all methods of an interface, it automatically satisfies that interface.
+</Callout>
+
+---
+
+## Error Handling
+
+```go title="Error Handling Pattern" showLineNumbers
+import (
+    "errors"
+    "fmt"
+)
+
+// Function that returns error
+func divide(a, b float64) (float64, error) {
+    if b == 0 {
+        return 0, errors.New("cannot divide by zero")
+    }
+    return a / b, nil
+}
+
+// Handle errors
+func main() {
+    result, err := divide(10, 0)
+    if err != nil {
+        fmt.Printf("Error: %v\n", err)
+        return
+    }
+    fmt.Printf("Result: %.2f\n", result)
+}
+```
+
+---
+
+## Concurrency (Goroutines)
+
+```go title="Concurrent Programming" showLineNumbers
+import (
+    "fmt"
+    "time"
+)
+
+// Regular function
+func sayHello(name string) {
+    for i := 0; i < 3; i++ {
+        fmt.Printf("Hello %s %d\n", name, i)
+        time.Sleep(100 * time.Millisecond)
+    }
+}
+
+func main() {
+    // Start goroutines
+    go sayHello("Alice")
+    go sayHello("Bob")
+    
+    // Wait for goroutines to execute
+    time.Sleep(1 * time.Second)
+}
+```
+
+### Channels
+
+```go title="Channel Communication" showLineNumbers
+func main() {
+    // Create channel
+    ch := make(chan string)
+    
+    // Start goroutine
+    go func() {
+        ch <- "Hello from goroutine"
+    }()
+    
+    // Receive from channel
+    message := <-ch
+    fmt.Println(message)
+}
+```
+
+---
+
+## Common Standard Libraries
+
+<FeatureGrid>
+  <FeatureCard title="fmt" icon="📝">
+    Formatted I/O: `fmt.Println()`, `fmt.Printf()`
+  </FeatureCard>
+  
+  <FeatureCard title="strings" icon="🔤">
+    String operations: `strings.Contains()`, `strings.Split()`
+  </FeatureCard>
+  
+  <FeatureCard title="strconv" icon="🔄">
+    Type conversion: `strconv.Atoi()`, `strconv.Itoa()`
+  </FeatureCard>
+  
+  <FeatureCard title="time" icon="⏰">
+    Time handling: `time.Now()`, `time.Sleep()`
+  </FeatureCard>
+</FeatureGrid>
+
+---
+
+## Quick Reference
+
+<Callout type="info">
+**Running Go Programs**:
+- `go run main.go` - Run directly
+- `go build main.go` - Compile to executable
+- `go mod init project-name` - Initialize module
+</Callout>
+
+### Common Operations
+
+```go showLineNumbers
+// String operations
+import "strings"
+result := strings.ToUpper("hello")    // "HELLO"
+parts := strings.Split("a,b,c", ",")  // ["a", "b", "c"]
+
+// Type conversion
+import "strconv"
+num, _ := strconv.Atoi("123")         // string to int
+str := strconv.Itoa(123)              // int to string
+
+// Time operations
+import "time"
+now := time.Now()
+time.Sleep(1 * time.Second)
+```
+
+---
+
+<Callout type="success">
+**Congratulations!** You've learned the basics of Go syntax. Keep practicing these concepts and try building small projects to deepen your understanding.
+</Callout>
