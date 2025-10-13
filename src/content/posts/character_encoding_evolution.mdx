@@ -1,0 +1,112 @@
+{/** @type {import("@/app/posts/types/posts.types").PostMetadata} */}
+export const metadata = {
+    slug: "character_encoding_evolution",
+    title: "Character Encoding Evolution",
+    description: "A comprehensive guide to understanding how text encoding evolved from ASCII to Unicode, covering UTF-8, UTF-16, and their role in modern programming.",
+    publishedAt: "2025-10-13",
+    modifiedAt: "2025-10-13",
+    readTime: "5 min read",
+    tags: ["Programming", "Unicode", "ASCII", "Text Encoding"],
+    featured: false,
+};
+
+Understanding character encoding is crucial for any developer. This guide traces the evolution from ASCII to Unicode and explains how modern systems handle text.
+
+## 1. ASCII (1960s)
+
+ASCII was the earliest standard for text encoding that laid the foundation for all modern text systems.
+
+- Defines **128 characters** (`0–127`): English letters, digits, basic symbols, control codes
+- Each character = **1 byte (7 bits used)**
+- Simple and efficient for English text
+
+```javascript title="ASCII examples" showLineNumbers
+'A'.charCodeAt(0); // 65
+'a'.charCodeAt(0); // 97
+'0'.charCodeAt(0); // 48
+```
+
+## 2. The Encoding Chaos Era
+
+As computing spread globally, ASCII's limitations became apparent:
+
+- Non-English languages needed more characters than ASCII's 128
+- Many local extensions appeared: **ISO-8859-1**, **GB2312**, **Shift-JIS**
+- **Result**: Same byte could mean different characters across systems
+- This led to **"mojibake"** - garbled text when encoding mismatches occurred
+
+> The same file could display correctly in one system but show gibberish in another, making international communication through computers extremely problematic.
+
+## 3. Unicode to the Rescue (1991-)
+
+Unicode solved the chaos by creating a unified system:
+
+- **Unified all world characters** under one numbering system (**code points**)
+- Range: `U+0000 – U+10FFFF` (~1.1 million code points)
+- Each character gets a **unique ID** regardless of language or platform
+- No more conflicts between different encoding systems
+
+```javascript title="Unicode code points" showLineNumbers
+'A'.codePointAt(0); // 65 (U+0041)
+'你'.codePointAt(0); // 20320 (U+4F60)
+'🎉'.codePointAt(0); // 127881 (U+1F389)
+```
+
+## 4. Unicode Encoding Forms
+
+Unicode defines the numbers (code points), but **UTF encodings** define how to store them in bytes:
+
+| Encoding   | Bytes per char | Notes                                    |
+|------------|----------------|------------------------------------------|
+| **UTF-8**  | 1–4            | Compact, ASCII-compatible (web standard) |
+| **UTF-16** | 2 or 4         | Used by JS, Java, Windows                |
+| **UTF-32** | 4              | Fixed length, large memory use           |
+
+### UTF-8: The Web Standard
+
+- **ASCII compatible**: First 128 characters identical to ASCII
+- **Variable length**: Uses 1-4 bytes per character
+- **Efficient**: Only uses extra bytes when needed
+
+```javascript title="UTF-8 byte lengths (conceptual)" showLineNumbers
+'A'  // 1 byte  (ASCII range)
+'é'  // 2 bytes (Latin extended)
+'你' // 3 bytes (CJK characters)
+'🎉' // 4 bytes (Emoji)
+```
+
+## 5. JavaScript & UTF-16
+
+JavaScript has some unique characteristics due to its UTF-16 foundation:
+
+- JS strings are stored in **UTF-16 code units**
+- `charCodeAt()` returns a **UTF-16 value (0–65535)**
+- For ASCII characters, this value equals the ASCII code
+- **Surrogate pairs** handle characters beyond 65535
+
+```javascript
+// Basic characters
+"A".charCodeAt(0);  // 65 (same as ASCII)
+"你".charCodeAt(0); // 20320 (U+4F60)
+
+// Emoji requiring surrogate pairs
+"🎉".length;         // 2 (two UTF-16 code units)
+"🎉".charCodeAt(0);  // 55357 (high surrogate)
+"🎉".charCodeAt(1);  // 56329 (low surrogate)
+
+// Use codePointAt() for proper Unicode handling
+"🎉".codePointAt(0); // 127881 (actual Unicode code point)
+```
+
+## Key Takeaways
+
+**The Evolution Path:**
+ASCII → Local chaos → Unicode (unified IDs) → UTF-8/16/32 (storage formats)
+
+**For Modern Developers:**
+- **Use UTF-8** for web content and APIs
+- **Understand JavaScript's UTF-16** when working with string manipulation
+- **ASCII characters maintain the same numeric values** across all systems
+- **Always specify encoding** explicitly in your applications
+
+Understanding this evolution helps explain why we sometimes encounter encoding issues and how to prevent them in modern applications.
