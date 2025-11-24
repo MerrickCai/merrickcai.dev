@@ -1,0 +1,570 @@
+{/** @type {import("@/app/posts/types/posts.types").PostMetadata} */}
+export const metadata = {
+    slug: "react_hooks_guide",
+    title: "React Hooks Guide: useState & useEffect",
+    description: "A comprehensive guide to understanding React's most essential hooks - useState and useEffect, with practical examples and best practices.",
+    publishedAt: "2025-11-20",
+    modifiedAt: "2025-11-20",
+    readTime: "12 min read",
+    tags: ["React", "Hooks", "JavaScript", "Frontend"],
+    featured: true,
+};
+
+React Hooks revolutionized how we write React components. This guide covers the two most fundamental hooks - `useState` and `useEffect` - with practical examples and best practices.
+
+---
+
+## What are Hooks?
+
+Hooks are functions that let you "hook into" React features from function components. They allow you to use state and other React features without writing a class.
+
+<Callout type="info">
+**Rules of Hooks:**
+- Only call hooks at the top level (not inside loops, conditions, or nested functions)
+- Only call hooks from React function components or custom hooks
+</Callout>
+
+---
+
+## useState Hook
+
+`useState` is the most basic hook that lets you add state to functional components.
+
+### Basic Syntax
+
+```jsx title="useState Syntax" showLineNumbers
+import { useState } from 'react';
+
+function Component() {
+  const [state, setState] = useState(initialValue);
+  // state: current value
+  // setState: function to update state
+  // initialValue: initial state value
+}
+```
+
+### Simple Counter Example
+
+```jsx title="Counter Component" showLineNumbers
+import { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+      <button onClick={() => setCount(count - 1)}>
+        Decrement
+      </button>
+      <button onClick={() => setCount(0)}>
+        Reset
+      </button>
+    </div>
+  );
+}
+```
+
+### Multiple State Variables
+
+```jsx title="Multiple States" showLineNumbers
+function UserProfile() {
+  const [name, setName] = useState('');
+  const [age, setAge] = useState(0);
+  const [email, setEmail] = useState('');
+
+  return (
+    <form>
+      <input
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Name"
+      />
+      <input
+        type="number"
+        value={age}
+        onChange={(e) => setAge(Number(e.target.value))}
+        placeholder="Age"
+      />
+      <input
+        type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        placeholder="Email"
+      />
+    </form>
+  );
+}
+```
+
+### Object State
+
+```jsx title="Managing Object State" showLineNumbers
+function UserForm() {
+  const [user, setUser] = useState({
+    name: '',
+    age: 0,
+    email: ''
+  });
+
+  const handleChange = (field, value) => {
+    setUser(prevUser => ({
+      ...prevUser,
+      [field]: value
+    }));
+  };
+
+  return (
+    <div>
+      <input
+        value={user.name}
+        onChange={(e) => handleChange('name', e.target.value)}
+      />
+      <input
+        value={user.age}
+        onChange={(e) => handleChange('age', e.target.value)}
+      />
+      <input
+        value={user.email}
+        onChange={(e) => handleChange('email', e.target.value)}
+      />
+    </div>
+  );
+}
+```
+
+<Callout type="warning">
+When updating objects or arrays in state, always create a new copy rather than mutating the existing state directly.
+</Callout>
+
+### Array State
+
+```jsx title="Managing Array State" showLineNumbers
+function TodoList() {
+  const [todos, setTodos] = useState([]);
+  const [input, setInput] = useState('');
+
+  const addTodo = () => {
+    setTodos([...todos, { id: Date.now(), text: input }]);
+    setInput('');
+  };
+
+  const removeTodo = (id) => {
+    setTodos(todos.filter(todo => todo.id !== id));
+  };
+
+  return (
+    <div>
+      <input
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
+      <button onClick={addTodo}>Add</button>
+      <ul>
+        {todos.map(todo => (
+          <li key={todo.id}>
+            {todo.text}
+            <button onClick={() => removeTodo(todo.id)}>
+              Delete
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+### Functional Updates
+
+```jsx title="Using Previous State" showLineNumbers
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  // ❌ May cause issues with rapid updates
+  const increment = () => {
+    setCount(count + 1);
+  };
+
+  // ✅ Recommended: Use functional update
+  const incrementSafe = () => {
+    setCount(prevCount => prevCount + 1);
+  };
+
+  // Multiple updates
+  const incrementByThree = () => {
+    setCount(prev => prev + 1);
+    setCount(prev => prev + 1);
+    setCount(prev => prev + 1);
+  };
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={incrementSafe}>Increment</button>
+      <button onClick={incrementByThree}>+3</button>
+    </div>
+  );
+}
+```
+
+---
+
+## useEffect Hook
+
+`useEffect` lets you perform side effects in function components. It serves the same purpose as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` combined.
+
+### Basic Syntax
+
+```jsx title="useEffect Syntax" showLineNumbers
+import { useEffect } from 'react';
+
+useEffect(() => {
+  // Effect code here
+  
+  return () => {
+    // Cleanup code (optional)
+  };
+}, [dependencies]);
+```
+
+### Effect Execution Patterns
+
+| Dependencies | Behavior |
+|--------------|----------|
+| `[]` | Runs once (on mount) |
+| `[a, b]` | Runs when `a` or `b` changes |
+| No array | Runs after every render |
+
+### Simple Example
+
+```jsx title="Document Title Effect" showLineNumbers
+import { useState, useEffect } from 'react';
+
+function PageTitle() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `Count: ${count}`;
+  }, [count]); // Only re-run when count changes
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>
+        Increment
+      </button>
+    </div>
+  );
+}
+```
+
+### Data Fetching
+
+```jsx title="Fetching Data" showLineNumbers
+import { useState, useEffect } from 'react';
+
+function UserList() {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    fetch('https://api.example.com/users')
+      .then(response => response.json())
+      .then(data => {
+        setUsers(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        setError(err.message);
+        setLoading(false);
+      });
+  }, []); // Empty array = run once on mount
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
+  return (
+    <ul>
+      {users.map(user => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+### Cleanup Function
+
+```jsx title="Event Listeners & Cleanup" showLineNumbers
+import { useState, useEffect } from 'react';
+
+function WindowSize() {
+  const [width, setWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    // Add event listener
+    window.addEventListener('resize', handleResize);
+
+    // Cleanup function
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); // Empty dependency array
+
+  return <p>Window width: {width}px</p>;
+}
+```
+
+<Callout type="success">
+Always clean up subscriptions, event listeners, and timers in the cleanup function to prevent memory leaks.
+</Callout>
+
+### Timer Example
+
+```jsx title="Timer with Cleanup" showLineNumbers
+import { useState, useEffect } from 'react';
+
+function Timer() {
+  const [seconds, setSeconds] = useState(0);
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    let interval = null;
+
+    if (isActive) {
+      interval = setInterval(() => {
+        setSeconds(prev => prev + 1);
+      }, 1000);
+    }
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
+  }, [isActive]);
+
+  return (
+    <div>
+      <p>Seconds: {seconds}</p>
+      <button onClick={() => setIsActive(!isActive)}>
+        {isActive ? 'Pause' : 'Start'}
+      </button>
+      <button onClick={() => setSeconds(0)}>Reset</button>
+    </div>
+  );
+}
+```
+
+---
+
+## Combining useState and useEffect
+
+### Search with Debounce
+
+```jsx title="Debounced Search" showLineNumbers
+import { useState, useEffect } from 'react';
+
+function SearchBox() {
+  const [query, setQuery] = useState('');
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    if (!query) {
+      setResults([]);
+      return;
+    }
+
+    // Debounce API calls
+    const timeoutId = setTimeout(() => {
+      fetch(`https://api.example.com/search?q=${query}`)
+        .then(res => res.json())
+        .then(data => setResults(data));
+    }, 500);
+
+    return () => clearTimeout(timeoutId);
+  }, [query]);
+
+  return (
+    <div>
+      <input
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search..."
+      />
+      <ul>
+        {results.map(result => (
+          <li key={result.id}>{result.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+### Local Storage Persistence
+
+```jsx title="Persisting State" showLineNumbers
+import { useState, useEffect } from 'react';
+
+function useLocalStorage(key, initialValue) {
+  const [value, setValue] = useState(() => {
+    const saved = localStorage.getItem(key);
+    return saved ? JSON.parse(saved) : initialValue;
+  });
+
+  useEffect(() => {
+    localStorage.setItem(key, JSON.stringify(value));
+  }, [key, value]);
+
+  return [value, setValue];
+}
+
+function Notes() {
+  const [notes, setNotes] = useLocalStorage('notes', []);
+  const [input, setInput] = useState('');
+
+  const addNote = () => {
+    setNotes([...notes, { id: Date.now(), text: input }]);
+    setInput('');
+  };
+
+  return (
+    <div>
+      <input
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+      />
+      <button onClick={addNote}>Add Note</button>
+      <ul>
+        {notes.map(note => (
+          <li key={note.id}>{note.text}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+---
+
+## Common Patterns and Best Practices
+
+<FeatureGrid>
+  <FeatureCard title="State Initialization" icon="🎯">
+    Use functions for expensive initial state calculations: `useState(() => computeInitialState())`
+  </FeatureCard>
+  
+  <FeatureCard title="Functional Updates" icon="🔄">
+    Use functional updates when new state depends on previous state: `setState(prev => prev + 1)`
+  </FeatureCard>
+  
+  <FeatureCard title="Cleanup Effects" icon="🧹">
+    Always clean up subscriptions, timers, and event listeners in the return function
+  </FeatureCard>
+  
+  <FeatureCard title="Dependencies" icon="📋">
+    Include all values from component scope that change over time in the dependency array
+  </FeatureCard>
+</FeatureGrid>
+
+---
+
+## Common Pitfalls
+
+<Callout type="warning">
+**Avoid These Mistakes:**
+
+1. **Mutating state directly**
+   ```jsx
+   // ❌ Wrong
+   user.name = 'John';
+   setUser(user);
+   
+   // ✅ Correct
+   setUser({ ...user, name: 'John' });
+   ```
+
+2. **Missing dependencies**
+   ```jsx
+   // ❌ Wrong: missing 'count' in deps
+   useEffect(() => {
+     console.log(count);
+   }, []);
+   
+   // ✅ Correct
+   useEffect(() => {
+     console.log(count);
+   }, [count]);
+   ```
+
+3. **Infinite loops**
+   ```jsx
+   // ❌ Wrong: updates state in effect without deps
+   useEffect(() => {
+     setCount(count + 1);
+   });
+   
+   // ✅ Correct: add proper condition
+   useEffect(() => {
+     if (someCondition) {
+       setCount(count + 1);
+     }
+   }, [someCondition]);
+   ```
+</Callout>
+
+---
+
+## Quick Reference
+
+```jsx title="useState Cheat Sheet" showLineNumbers
+// Simple state
+const [value, setValue] = useState(initialValue);
+
+// Object state
+const [obj, setObj] = useState({ a: 1, b: 2 });
+setObj(prev => ({ ...prev, a: 3 }));
+
+// Array state
+const [arr, setArr] = useState([1, 2, 3]);
+setArr(prev => [...prev, 4]);
+setArr(prev => prev.filter(x => x !== 2));
+
+// Functional update
+setValue(prev => prev + 1);
+```
+
+```jsx title="useEffect Cheat Sheet" showLineNumbers
+// Run once (mount)
+useEffect(() => { /* ... */ }, []);
+
+// Run on every render
+useEffect(() => { /* ... */ });
+
+// Run when dependencies change
+useEffect(() => { /* ... */ }, [dep1, dep2]);
+
+// With cleanup
+useEffect(() => {
+  // Setup
+  return () => {
+    // Cleanup
+  };
+}, [deps]);
+```
+
+---
+
+<Callout type="success">
+**Congratulations!** You now understand the fundamentals of React Hooks. Practice these patterns in your projects and explore other hooks like `useContext`, `useReducer`, and `useMemo` as you advance.
+</Callout>
